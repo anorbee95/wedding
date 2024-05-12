@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # wedding
 wedding
+=======
+>>>>>>> 90de47f820b7382c714df7ae3323fb14cbeb0ff5
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
