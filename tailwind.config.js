@@ -16,12 +16,21 @@ export default {
         "hero-video": "url('../wedding/src/assets/video.jpg')",
         "modal-bg": "url('/src/assets/modalBg.png')",
       },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: 0, bottom: "-5rem" },
+          "100%": { opacity: 1, bottom: "3rem" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 300ms ease forwards",
+      },
     },
     fontFamily: {
-      "gilda": ["Gilda Display"],
+      gilda: ["Gilda Display"],
       "alex-brush": ["Alex Brush"],
-      "freehand": ["Freehand"],
-      "calligraffitti": ["Calligraffitti"],
+      freehand: ["Freehand"],
+      calligraffitti: ["Calligraffitti"],
     },
     aspectRatio: {
       modal: "3 / 4.2",

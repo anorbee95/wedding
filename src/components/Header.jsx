@@ -19,8 +19,6 @@ export default function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  console.log(activeSection)
   
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -31,7 +29,6 @@ export default function Header() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      console.log(entries)
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);

@@ -6,10 +6,13 @@ export default function Party() {
     <div className="h-64 overflow-hidden rounded-t-lg">
       <img className="object-cover scale-110" src={bukovszki2} alt="bukovszki2" />
     </div>
-    <div className="p-5">
+    <div className="relative p-5">
         <h5 className="mb-2 text-2xl font-gilda font-bold tracking-tight text-custom-pink">
           Lagzi
         </h5>
+        <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
+          19:00
+        </span>
         <p className="mb-3 font-normal text-gray-700">
           Here are the biggest enterprise technology acquisitions of 2021 so
           far, in reverse chronological order.

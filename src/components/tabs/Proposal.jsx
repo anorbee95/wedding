@@ -21,11 +21,14 @@ export default function Proposal() {
             alt="rightTopMotive"
           />
           <img className="mt-8" src={proposeIcon} alt="proposeIcon" />
-          <h1 className="mt-4 font-gilda uppercase text-2xl">Lánykérés</h1>
+          <h1 className="mt-4 font-gilda uppercase text-2xl">A Lánykérés</h1>
           <p className="text-gray-500 text-lg mt-2">2023 szeptember 21.</p>
-          <p className="text-gray-600 text-md mt-4 pr-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            alias, cupiditate harum quisquam laboriosam amet temporibus!
+          <p className="text-gray-600 text-md mt-4 pr-5 text-justify">
+            Norbi hosszú ideig hallgatta Démi kérlelő szavait a lánykérésről, de
+            végül sikerült meglepnie Őt Isztambul varázslatos városában. Amikor
+            a gyűrűt Démi ujjára húzta, az egész étterem Őket ünnepelte. Démi
+            arca sugárzott a boldogságtól, és bár alig emlékszik a pillanatra,
+            sosem felejtjük el azt a csodálatos estét.
           </p>
         </div>
       </div>

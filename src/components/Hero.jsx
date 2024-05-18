@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
       </section>
       {/* MOBILE */}
-      <section id="hero" className="md:hidden bg-white py-2">
+      <section id="mobile-hero" className="md:hidden bg-white py-2">
         <div className="container mx-auto pb-28">
           <div className="flex flex-col">
             <div className="flex flex-col gap-4 2xl:gap-8 mx-auto px-1 pt-24">

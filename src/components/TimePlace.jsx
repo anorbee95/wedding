@@ -16,8 +16,8 @@ export default function TimePlace() {
           Hol és Mikor
         </h1>
         <div className="flex flex-wrap justify-center gap-8">
-          <Reception />
           <Ceremony />
+          <Reception />
           <Party />
         </div>
       </div>

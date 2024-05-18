@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import VideoBanner from "./components/VideoBanner";
 import WeddingInvitationModal from "./components/WeddingInvitationModal";
 import TimePlace from "./components/TimePlace";
+import FloatingNav from "./components/FloatingNav";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(true);
@@ -24,6 +25,7 @@ export default function App() {
       <Gallery />
       <TimePlace />
       <RSVP />
+      <FloatingNav />
       <Footer />
     </div>
   );

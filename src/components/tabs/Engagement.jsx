@@ -17,11 +17,13 @@ export default function Engagement() {
             alt="rightTopMotive"
           />
           <img className="mt-7" src={engagementIcon} alt="engagementIcon" />
-          <h1 className="mt-3 font-gilda uppercase text-2xl">Eljegyzés</h1>
-          <p className="text-gray-500 text-lg mt-2">2018 október 2.</p>
-          <p className="text-gray-600 text-md mt-4 pr-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            alias, cupiditate harum quisquam laboriosam amet temporibus!
+          <h1 className="mt-3 font-gilda uppercase text-2xl">A Jegyesség</h1>
+          <p className="text-gray-500 text-lg mt-2">Egészen a lagziig</p>
+          <p className="text-gray-600 text-md mt-4 pr-5 text-justify">
+            Jegyességünk idejét Bütyikével töltjük boldogságban és szeretetben.
+            Bár idén a polgári szertartáson hivatalosan is egybekelünk, az igazi
+            nagy ünneplést jövőre tartjuk, ahol veletek együtt szeretnénk
+            megosztani boldogságunkat és örömünket.
           </p>
         </div>
       </div>
