@@ -53,13 +53,13 @@ export default function Gallery() {
   };
 
   return (
-    <div className="bg-white">
-      <div className="pt-20 pb-20 flex flex-col gap-4 items-center">
+    <div id='gallery' className="bg-white">
+      <div className="pt-20 pb-10 lg:pb-20 flex flex-col gap-4 items-center justify-center">
         <h1 className="relative uppercase font-gilda text-4xl m-4 text-custom-pink">
           <img className="absolute -top-8 left-16 h-12" src={miniLeaves} alt="miniLeaves" />
           Galéria
         </h1>
-        <div className="grid lg:grid-cols-3 gap-8 my-4">
+        <div className="flex justify-center flex-wrap 2xl:grid 2xl:grid-cols-3 gap-8 my-4 mx-auto">
           {images.map((image, idx) => (
             <div
               key={image + idx}

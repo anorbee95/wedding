@@ -25,15 +25,20 @@ export default function Header() {
         isScrolled ? "shadow-md bg-white" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[82%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <h1 className="cursor-pointer text-3xl font-alex-brush  text-custom-pink">
+      <div className="max-w-[82%] mx-auto md:px-4 lg:px-8">
+        <div className="xl:hidden h-16 flex items-center justify-center">
+          <h1 className="cursor-pointer text-3xl font-alex-brush text-custom-pink">
+            Démi & Norbi
+          </h1>
+        </div>
+        <div className="hidden xl:flex items-center justify-between h-16">
+          <h1 className="cursor-pointer text-3xl font-alex-brush text-custom-pink">
             Démi & Norbi
           </h1>
           <nav className="flex gap-8 uppercase items-center h-full font-gilda">
             <div className="h-full hover:border-b-2 hover:border-custom-pink">
               <a
-                href="#home"
+                href="#about"
                 className="h-full flex items-center box-border text-gray-800 hover:text-custom-pink px-3 py-2 text-sm font-semibold"
               >
                 Rólunk
@@ -41,7 +46,7 @@ export default function Header() {
             </div>
             <div className="h-full flex items-center hover:border-b-2 hover:border-custom-pink">
               <a
-                href="#about"
+                href="#love-story"
                 className="h-full flex items-center text-gray-800 hover:text-custom-pink  px-3 py-2 text-sm font-semibold"
               >
                 Történetünk
@@ -49,7 +54,7 @@ export default function Header() {
             </div>
             <div className="h-full flex items-center hover:border-b-2 hover:border-custom-pink">
               <a
-                href="#services"
+                href="#gallery"
                 className="text-gray-800 hover:text-custom-pink  px-3 py-2 text-sm font-semibold"
               >
                 Galéria
@@ -57,7 +62,7 @@ export default function Header() {
             </div>
             <div className="h-full flex items-center hover:border-b-2 hover:border-custom-pink">
               <a
-                href="#services"
+                href="#time-place"
                 className="text-gray-800 hover:text-custom-pink  px-3 py-2 text-sm font-semibold"
               >
                 Hol és Mikor
@@ -65,7 +70,7 @@ export default function Header() {
             </div>
             <div className="h-full flex items-center hover:border-b-2 hover:border-custom-pink">
               <a
-                href="#contact"
+                href="#rsvp"
                 className="text-gray-800 hover:text-custom-pink  px-3 py-2 text-sm font-semibold"
               >
                 RSVP
@@ -73,7 +78,9 @@ export default function Header() {
             </div>
           </nav>
           <span className="text-custom-pink font-alex-brush text-3xl font-medium">
-            {guest ? `Hello ${guest}!` : ""}
+            {guest
+              ? `Hello ${guest.charAt(0).toUpperCase() + guest.slice(1)}!`
+              : "Üdv az oldalon!"}
           </span>
         </div>
       </div>

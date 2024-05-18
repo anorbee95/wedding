@@ -8,7 +8,7 @@ export default function Engagement() {
       <div className="grid md:grid-cols-2 w-full md:h-96 rounded-md">
         <div className="relative h-96 w-full box-border">
           <img className="h-full w-full object-cover" src={fam} alt="fam" />
-          <div className="absolute top-4 left-4 w-[90%] md:w-[94%] h-[92%] border"></div>
+          <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
         <div className="relative m-12 border-t border-r">
           <img

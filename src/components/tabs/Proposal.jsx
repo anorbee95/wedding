@@ -12,7 +12,7 @@ export default function Proposal() {
             src={engagement}
             alt="engagement"
           />
-          <div className="absolute top-4 left-4 w-[90%] md:w-[94%] h-[92%] border"></div>
+          <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
         <div className="relative m-12 border-t border-r">
           <img

@@ -38,7 +38,7 @@ export default function VideoBanner() {
   };
 
   return (
-    <div className="grid place-items-center h-[28rem] bg-[#77777744]">
+    <div id='video-banner' className="grid place-items-center h-[28rem] bg-[#77777744]">
       <div 
         onClick={handleClick}
         className="h-24 w-24 bg-[#eeeeee66] hover:bg-[#eeeeee44] rounded-full border-2 flex items-center justify-center cursor-pointer"

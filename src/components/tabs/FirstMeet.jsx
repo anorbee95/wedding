@@ -1,4 +1,4 @@
-import meet from "../../assets/tinder.jpg";
+import meet from "../../assets/meet.jpg";
 import meetIcon from "../../assets/meetIcon.png";
 import rightTopMotive from "../../assets/rightTopMotive.jpg";
 
@@ -8,7 +8,7 @@ export default function FirstMeet() {
       <div className="grid md:grid-cols-2 w-full md:h-96 rounded-md">
         <div className="relative h-96 w-full box-border">
           <img className="h-full w-full object-cover" src={meet} alt="meet" />
-          <div className="absolute top-4 left-4 w-[90%] md:w-[94%] h-[92%] border"></div>
+          <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
         <div className="relative m-12 border-t border-r">
           <img
