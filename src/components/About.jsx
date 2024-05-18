@@ -8,8 +8,8 @@ import middleImage from "../assets/middleImage.jpg";
 export default function About() {
   return (
     <>
-      <div className="hidden md:block bg-white">
-        <div className="pb-20">
+      <section id="about" className="hidden md:block bg-white">
+        <div className="py-20">
           <div className="grid font-gilda grid-cols-3 place-items-center bg-custom-light h-72 w-3/4 mx-auto rounded-md">
             <div className="text-right p-5">
               <h3 className="text-3xl my-3 font-gilda">Démia</h3>
@@ -32,7 +32,6 @@ export default function About() {
               </div>
             </div>
             <div
-              id="about"
               className="rounded-full overflow-hidden border-[1.5rem] border-zinc-50 shadow-3xl"
             >
               <img
@@ -63,9 +62,9 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/* MOBILE */}
-      <div id="about" className="md:hidden bg-white">
+      <section id="about" className="md:hidden bg-white">
         <div className="pb-12">
           <div className="grid font-gilda place-items-center bg-custom-light mx-4 rounded-md">
             <div className="text-center py-4">
@@ -117,7 +116,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

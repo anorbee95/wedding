@@ -9,7 +9,7 @@ export default function LoveStory() {
   const [activeTab, setActiveTab] = useState("meet");
 
   return (
-    <div id="love-story" className="bg-white">
+    <section id="love-story" className="bg-white">
       <div className="pt-20 pb-28 flex flex-col gap-4 items-center">
         <h1 className="relative uppercase font-gilda text-4xl m-4 text-custom-pink">
           <img
@@ -60,6 +60,6 @@ export default function LoveStory() {
         {activeTab === "propose" && <Proposal />}
         {activeTab === "engage" && <Engagement />}
       </div>
-    </div>
+    </section>
   );
 }

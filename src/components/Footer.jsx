@@ -17,7 +17,7 @@ import bagatell from "../assets/partners/bagatell.png";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-white">
+    <section id="footer" className="bg-white">
       <div className="py-20 lg:py-16 mx-auto max-w-screen-xl px-4">
         <div className="flex justify-center mb-8">
           <h1 className="relative uppercase font-gilda text-center text-4xl m-4 text-custom-pink">
@@ -70,6 +70,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </section>
   );
 }

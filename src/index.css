@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+.active-nav-item {
+  border-bottom: 2px solid #a3888c;
+  color: #a3888c;
+}
+
 @font-face {
   font-family: "Alex Brush";
   src: url("./fonts/AlexBrush-Regular.ttf") format("truetype");

@@ -8,7 +8,7 @@ import Countdown from "./CountDown";
 export default function Hero() {
   return (
     <>
-      <div id="hero" className="hidden md:block bg-white py-12">
+      <section id="hero" className="hidden md:block bg-white pt-12">
         <img
           className="absolute top-24 right-0 h-[320px] 2xl:h-[420px]"
           src={topLeaves}
@@ -47,9 +47,9 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/* MOBILE */}
-      <div id="hero" className="md:hidden bg-white py-2">
+      <section id="hero" className="md:hidden bg-white py-2">
         <div className="container mx-auto pb-28">
           <div className="flex flex-col">
             <div className="flex flex-col gap-4 2xl:gap-8 mx-auto px-1 pt-24">
@@ -84,7 +84,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

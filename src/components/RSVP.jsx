@@ -73,7 +73,7 @@ export default function RSVP() {
   };
 
   return (
-    <div id="rsvp" className="bg-white">
+    <section id="rsvp" className="bg-white">
       <div className="text-xs lg:text-md flex justify-center w-[40rem] max-w-[90vw] h-[60rem] mx-auto">
         <div className="relative w-full h-full border-2 shadow-3xl rounded-t-full rounded-b-full">
           <div className="flex flex-col items-center w-[37.2rem] max-w-[80vw] h-[57.2rem] absolute top-5 left-5 rounded-t-full rounded-b-full border border-custom-pink">
@@ -530,6 +530,6 @@ export default function RSVP() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

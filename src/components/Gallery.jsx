@@ -53,7 +53,7 @@ export default function Gallery() {
   };
 
   return (
-    <div id='gallery' className="bg-white">
+    <section id='gallery' className="bg-white">
       <div className="pt-20 pb-10 lg:pb-20 flex flex-col gap-4 items-center justify-center">
         <h1 className="relative uppercase font-gilda text-4xl m-4 text-custom-pink">
           <img className="absolute -top-8 left-16 h-12" src={miniLeaves} alt="miniLeaves" />
@@ -83,6 +83,6 @@ export default function Gallery() {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }

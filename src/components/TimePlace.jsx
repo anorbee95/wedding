@@ -5,7 +5,7 @@ import Reception from "./cards/Reception";
 
 export default function TimePlace() {
   return (
-    <div id="time-place" className="bg-white">
+    <section id="time-place" className="bg-white">
       <div className="pt-20 pb-20 flex flex-col gap-4 items-center justify-center">
         <h1 className="relative uppercase font-gilda text-4xl m-4 text-custom-pink">
           <img
@@ -21,6 +21,6 @@ export default function TimePlace() {
           <Party />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
