@@ -8,8 +8,6 @@ import RSVP from "./components/RSVP";
 import Header from "./components/Header";
 import VideoBanner from "./components/VideoBanner";
 import WeddingInvitationModal from "./components/WeddingInvitationModal";
-import MobileHero from "./components/MobileHero";
-import MobileAbout from "./components/MobileAbout";
 import TimePlace from "./components/TimePlace";
 
 export default function App() {
@@ -20,9 +18,7 @@ export default function App() {
       <WeddingInvitationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <Header />
       <Hero />
-      <MobileHero />
       <About />
-      <MobileAbout />
       <LoveStory />
       <VideoBanner />
       <Gallery />
