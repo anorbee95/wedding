@@ -59,12 +59,12 @@ export default function Gallery() {
           <img className="absolute -top-8 left-16 h-12" src={miniLeaves} alt="miniLeaves" />
           Galéria
         </h1>
-        <div className="flex justify-center flex-wrap 2xl:grid 2xl:grid-cols-3 gap-8 my-4 mx-auto">
+        <div className="max-w-screen flex justify-center flex-wrap 2xl:grid 2xl:grid-cols-3 gap-8 my-4 mx-auto">
           {images.map((image, idx) => (
             <div
               key={image + idx}
               onClick={() => openModal(idx)}
-              className="w-96 h-64 rounded-md overflow-hidden cursor-pointer bg-custom-light flex justify-center items-center"
+              className="md:w-96 md:h-64 rounded-md overflow-hidden cursor-pointer bg-custom-light flex justify-center items-center"
             >
               <img
                 className="h-full w-full object-cover hover:grayscale hover:scale-125 transition-all duration-500 ease-in-out"

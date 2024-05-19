@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .active-nav-item {
   border-bottom: 2px solid #a3888c;
   color: #a3888c;

@@ -15,8 +15,11 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div>
-      <WeddingInvitationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+    <div className="bg-[url('./assets/video2.jpg')] bg-fixed bg-top">
+      <WeddingInvitationModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       <Header />
       <Hero />
       <About />
