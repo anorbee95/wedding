@@ -47,18 +47,18 @@ export default function RSVP() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formPhase === 2 || !formData.rsvp) {
-      const id = await createGuest(formData);
+      const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) return setFormPhase(3);
     }
     if (!formData.name) return setError("A név mező kitöltése kötelező.");
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       return setError("Helytelen email cím.");
     if (formData.guests === "solo") {
-      const id = await createGuest(formData);
+      const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) return setFormPhase(3);
     } else if (formData.guests === "partner") {
       if (!formData.partnerName) return setError("Add meg a párod nevét is!");
-      const id = await createGuest(formData);
+      const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) return setFormPhase(3);
     } else if (formData.guests === "family") {
       if (!formData.numberOfFamilyMembers)
@@ -69,7 +69,6 @@ export default function RSVP() {
         return setError("Maximum 8-an jöhettek sajnos.");
       setFormPhase(2);
     }
-    console.log(formData);
   };
 
   return (
@@ -406,60 +405,60 @@ export default function RSVP() {
               {formData.rsvp && formPhase === 2 && (
                 <form className="mt-2 px-4">
                   <div className="max-h-[34rem] overflow-scroll">
-                  {Array.from({
-                    length: formData.numberOfFamilyMembers - 1,
-                  }).map((_, index) => (
-                    <div key={index} className="rounded-md">
-                      <div className="mb-4">
-                        <label
-                          htmlFor={`member${index + 1}`}
-                          className="mb-2 block text-sm font-medium text-custom-pink"
-                        >
-                          {`${index + 1}. családtag`}
-                        </label>
-                        <div className="relative mt-2 rounded-md">
-                          <div className="relative">
-                            <input
-                              id={`member${index + 1}`}
-                              name={`member${index + 1}`}
-                              type="name"
-                              value={formData[`member${index + 1}`]}
-                              onChange={(e) =>
+                    {Array.from({
+                      length: formData.numberOfFamilyMembers - 1,
+                    }).map((_, index) => (
+                      <div key={index} className="rounded-md">
+                        <div className="mb-4">
+                          <label
+                            htmlFor={`member${index + 1}`}
+                            className="mb-2 block text-sm font-medium text-custom-pink"
+                          >
+                            {`${index + 1}. családtag`}
+                          </label>
+                          <div className="relative mt-2 rounded-md">
+                            <div className="relative">
+                              <input
+                                id={`member${index + 1}`}
+                                name={`member${index + 1}`}
+                                type="name"
+                                value={formData[`member${index + 1}`]}
+                                onChange={(e) =>
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    [`member${index + 1}`]: e.target.value,
+                                  }))
+                                }
+                                placeholder={`${index + 1}. családtag neve...`}
+                                className="peer block w-full rounded-md border border-gray-300 py-2 pl-3 text-sm outline-blue-500 placeholder:text-gray-500"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mb-4">
+                          <div className="relative xl:text-[0.9rem] text-gray-900">
+                            <Select
+                              isMulti
+                              components={animatedComponents}
+                              name="mealPreferences"
+                              options={mealPreferences}
+                              onChange={(options) =>
                                 setFormData((prev) => ({
                                   ...prev,
-                                  [`member${index + 1}`]: e.target.value,
+                                  [`mealPref${index}`]: options.map(
+                                    (option) => option.label
+                                  ),
                                 }))
                               }
-                              placeholder={`${index + 1}. családtag neve...`}
-                              className="peer block w-full rounded-md border border-gray-300 py-2 pl-3 text-sm outline-blue-500 placeholder:text-gray-500"
+                              className="basic-multi-select mt-2"
+                              placeholder={`${
+                                index + 1
+                              }. családtag ételintoleranciái...`}
                             />
                           </div>
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <div className="relative xl:text-[0.9rem] text-gray-900">
-                          <Select
-                            isMulti
-                            components={animatedComponents}
-                            name="mealPreferences"
-                            options={mealPreferences}
-                            onChange={(options) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                [`mealPref${index}`]: options.map(
-                                  (option) => option.label
-                                ),
-                              }))
-                            }
-                            className="basic-multi-select mt-2"
-                            placeholder={`${
-                              index + 1
-                            }. családtag ételintoleranciái...`}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                   </div>
                   <button
                     className="mt-2 peer block w-full rounded-md border text-white bg-custom-pink border-custom-pink py-2 pl-3 pr-3 text-sm outline-custom-pink"
@@ -483,7 +482,9 @@ export default function RSVP() {
                     />
                   </div>
                   <p className="relative font-gilda text-center text-xl m-4 text-custom-pink">
-                    {formData.rsvp ? "Hamarosan találkozunk!" : "Sajnáljuk, hogy nem tudsz jönni!"}
+                    {formData.rsvp
+                      ? "Hamarosan találkozunk!"
+                      : "Sajnáljuk, hogy nem tudsz jönni!"}
                   </p>
                 </div>
               )}
