@@ -72,7 +72,7 @@ export default function FloatingNav() {
 
   return (
     <ul
-      className={`flex md:hidden items-center fixed bottom-12 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-500 ${
+      className={`flex md:hidden items-center fixed bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-30 transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -81,7 +81,7 @@ export default function FloatingNav() {
           <li key={item.id} className="relative">
             <a
               href={item.link}
-              className={`p-3 rounded-full text-white text-xl grid ${
+              className={`p-2 sm:p-3 rounded-full text-white text-md sm:text-xl grid ${
                 activeSection === item.section
                   ? "bg-custom-pink"
                   : "hover:bg-custom-pink-transparent"

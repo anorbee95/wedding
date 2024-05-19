@@ -56,10 +56,10 @@ export default function Hero() {
               <div className="flex justify-center">
                 <img src={upperMotive} width={"350rem"} alt="upperMotive" />
               </div>
-              <h1 className="font-gilda text-5xl text-center text-custom-pink">
-                DÉMI & NORBI
+              <h1 className="font-alex-brush text-5xl text-center text-custom-pink">
+                Démi & Norbi
               </h1>
-              <h2 className="font-gilda text-md text-center text-gray-600">
+              <h2 className="font-gilda text-xs xs:text-md text-center text-gray-600">
                 ÖSSZEHÁZASODUNK, 2025. MÁJUS 31-ÉN
               </h2>
               <Countdown />
@@ -77,7 +77,7 @@ export default function Hero() {
                 <img className="w-[90vw] object-cover" src={hero} alt="hero" />
               </div>
               <img
-                className="absolute top-[26rem] right-[10rem] h-52"
+                className="absolute top-[22rem] right-[7rem] xs:top-[26rem] xs:right-[10rem] h-52"
                 src={lowerLeaves}
                 alt="lowerLeaves"
               />

@@ -27,20 +27,20 @@ export default function Countdown () {
   }, []);
 
   return (
-    <div className="flex font-gilda text-zinc-500">
-      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-20">
+    <div className="flex justify-center font-gilda text-zinc-500">
+      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
         <p className="text-2xl font-bold">{countdown.days}</p>
         <p className="text-sm">nap</p>
       </div>
-      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-20">
+      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
         <p className="text-2xl font-bold">{countdown.hours}</p>
         <p className="text-sm">óra</p>
       </div>
-      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-20">
+      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
         <p className="text-2xl font-bold">{countdown.minutes}</p>
         <p className="text-sm">perc</p>
       </div>
-      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-20">
+      <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
         <p className="text-2xl font-bold">{countdown.seconds}</p>
         <p className="text-sm">mp</p>
       </div>
