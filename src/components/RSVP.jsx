@@ -2,7 +2,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import miniLeaves from "../assets/miniLeaves.png";
 import { useState } from "react";
-import { createGuest } from "../services/createGuest";
+import { createGuest } from "../services/guest/createGuest";
 import seeYou from "../assets/seeYou.jpg";
 
 const initialvalues = {
