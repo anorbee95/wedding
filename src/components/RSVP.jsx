@@ -76,7 +76,7 @@ export default function RSVP() {
       <div className="text-xs lg:text-md flex justify-center w-[40rem] max-w-[90vw] h-[60rem] mx-auto">
         <div className="relative w-full h-full border-2 shadow-3xl rounded-t-full rounded-b-full">
           <div className="flex flex-col items-center w-[37.2rem] max-w-[80vw] h-[57.2rem] absolute top-5 left-5 rounded-t-full rounded-b-full border border-custom-pink">
-            <h1 className="relative mt-24 text-center uppercase font-gilda text-2xl lg:text-4xl m-4 text-custom-pink">
+            <h1 className="relative mt-24 text-center uppercase font-gilda text-2xl lg:text-4xl text-custom-pink">
               <img
                 className="absolute -top-8 left-20 lg:left-32 h-12"
                 src={miniLeaves}
@@ -110,7 +110,7 @@ export default function RSVP() {
             <div className="mt-2 w-4/5">
               {formData.rsvp && formPhase === 1 && (
                 <form>
-                  <div className="rounded-md p-4 md:p-6">
+                  <div className="rounded-md py-4 px-1 md:p-6">
                     <div className="mb-4">
                       <label
                         htmlFor="name"
