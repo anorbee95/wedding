@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
+import { FaSort } from "react-icons/fa";
 
 const FavoriteSongs = () => {
   const [uniqueSongs, setUniqueSongs] = useState([]);
@@ -27,7 +28,9 @@ const FavoriteSongs = () => {
       });
 
       const songCounts = allSongs.reduce((acc, song) => {
-        const key = `${song.name || "Unknown"}-${song.artists[0].name || "Unknown"}`;
+        const key = `${song.name || "Unknown"}-${
+          song.artists[0].name || "Unknown"
+        }`;
         if (acc[key]) {
           acc[key].count += 1;
           acc[key].guests.push(song.guest);
@@ -74,41 +77,52 @@ const FavoriteSongs = () => {
   const filteredSongs = sortedSongs.filter(
     (song) =>
       (song.name && song.name.toLowerCase().includes(search.toLowerCase())) ||
-      (song.artists[0].name && song.artists[0].name.toLowerCase().includes(search.toLowerCase()))
+      (song.artists[0].name &&
+        song.artists[0].name.toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Favorite Songs</h2>
-      <div className="mb-4">
+    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+      <h2 className="text-4xl font-gilda font-bold mb-4">Kívánságlista</h2>
+      <div className=" font-gilda mb-4">
         <input
           type="text"
-          placeholder="Search songs..."
+          placeholder="Zenék keresése..."
           value={search}
           onChange={handleSearchChange}
-          className="p-2 border border-gray-300 rounded"
+          className="pt-2 pb-1 px-2 border w-full border-gray-300 rounded"
         />
       </div>
-      <table className="min-w-full bg-white">
-        <thead>
+      <div className="rounded-md overflow-hidden">
+      <table className="min-w-full bg-white font-gilda">
+        <thead className="text-left bg-custom-pink text-gray-50">
           <tr>
             <th
               onClick={() => handleSortChange("name")}
               className="cursor-pointer p-2 border-b"
             >
-              Name
+              <span className="flex items-center gap-1">
+                Zene címe
+                <FaSort />
+              </span>
             </th>
             <th
               onClick={() => handleSortChange("artist")}
               className="cursor-pointer p-2 border-b"
             >
-              Artist
+              <span className="flex items-center gap-1">
+                Előadó
+                <FaSort />
+              </span>
             </th>
             <th
               onClick={() => handleSortChange("count")}
-              className="cursor-pointer p-2 border-b"
+              className="text-center cursor-pointer p-2 border-b"
             >
-              Count
+              <span className="flex items-center justify-center gap-1">
+                Szavazat
+                <FaSort />
+              </span>
             </th>
           </tr>
         </thead>
@@ -117,9 +131,10 @@ const FavoriteSongs = () => {
             <tr key={index} className="hover:bg-gray-100">
               <td className="p-2 border-b">{song.name}</td>
               <td className="p-2 border-b">{song.artists[0].name}</td>
-              <td className="p-2 border-b">
+              <td className="p-2 border-b text-center">
                 <Tooltip
-                  title={`Submitted by: ${song.guests.join(", ")}`}
+                  className="cursor-pointer"
+                  title={`Beküldők: ${song.guests.join(", ")}`}
                   position="top"
                   trigger="mouseenter"
                   arrow={true}
@@ -132,6 +147,7 @@ const FavoriteSongs = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

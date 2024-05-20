@@ -54,133 +54,144 @@ const GuestList = () => {
       guest.email.toLowerCase().includes(search.toLowerCase())
   );
 
+  const countGuests = (guest) => {
+    let count = 1;
+    if (guest.guests === "partner" && guest.partnerName) {
+      count += 1;
+    }
+    if (guest.guests === "family") {
+      for (let i = 1; i <= 7; i++) {
+        if (guest[`member${i}`]) {
+          count += 1;
+        }
+      }
+    }
+    return count;
+  };
+
   const comingGuests = filteredGuests.filter((guest) => guest.rsvp);
   const canceledGuests = filteredGuests.filter((guest) => !guest.rsvp);
 
+  const totalComingGuests = comingGuests.reduce((acc, guest) => acc + countGuests(guest), 0);
+
   const renderMealPreferences = (preferences) => {
-    return preferences.length > 0 ? preferences.join(", ") : "None";
+    return preferences.length > 0 ? preferences.join(", ") : "Nincs";
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Guest List</h2>
+    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+      <h2 className="text-4xl font-gilda font-bold mb-4">Vendéglista</h2>
+      <div className="flex mb-4">
+        <label className="inline-flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            checked={showComing}
+            onChange={() => setShowComing(!showComing)}
+            className="sr-only peer"
+          />
+          <div className="relative w-11 h-6 bg-gray-200  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom-pink"></div>
+          <span className="ms-3 text-sm font-medium">
+            {showComing ? `${totalComingGuests} fő jön` : `${canceledGuests.length} fő nem jön`}
+          </span>
+        </label>
+      </div>
       <div className="mb-4">
         <input
           type="text"
           value={search}
           onChange={handleSearch}
-          placeholder="Search by name or email"
-          className="mb-4 p-2 border border-gray-300 rounded"
+          placeholder="Vendégek keresése..."
+          className="p-2 border border-gray-300 rounded w-full"
         />
-        <button
-          onClick={() => setShowComing(true)}
-          className={`mr-2 p-2 rounded ${
-            showComing ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
-        >
-          Coming Guests
-        </button>
-        <button
-          onClick={() => setShowComing(false)}
-          className={`p-2 rounded ${
-            !showComing ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
-        >
-          Canceled Guests
-        </button>
-      </div>
-      <div className="mb-4">
-        <p>
-          <strong>Number of Guests Coming:</strong> {comingGuests.length}
-        </p>
-        <p>
-          <strong>Number of Guests Canceled:</strong> {canceledGuests.length}
-        </p>
       </div>
       {showComing ? (
-        <table className="min-w-full bg-white border border-gray-300">
-          <thead className="text-left">
-            <tr>
-              <th
-                onClick={() => handleSort("name")}
-                className="p-2 border-b cursor-pointer"
-              >
-                Name
-              </th>
-              <th
-                onClick={() => handleSort("email")}
-                className="p-2 border-b cursor-pointer"
-              >
-                Email
-              </th>
-              <th
-                onClick={() => handleSort("guests")}
-                className="p-2 border-b cursor-pointer"
-              >
-                Guests
-              </th>
-              <th className="p-2 border-b">Meal Preferences</th>
-              <th className="p-2 border-b">Partner/Family</th>
-            </tr>
-          </thead>
-          <tbody>
-            {comingGuests.map((guest, index) => (
-              <tr key={index} className="border-t">
-                <td className="p-2">{guest.name}</td>
-                <td className="p-2">{guest.email}</td>
-                <td className="p-2">{guest.guests}</td>
-                <td className="p-2">
-                  {renderMealPreferences(guest.mealPreferences)}
-                </td>
-                <td className="p-2">
-                  {guest.guests === "partner" && guest.partnerName && (
-                    <div>
-                      <strong>Partner:</strong> {guest.partnerName} <br />
-                      <strong>Preferences:</strong>{" "}
-                      {renderMealPreferences(guest.partnerMealPreferences)}
-                    </div>
-                  )}
-                  {guest.guests === "family" && (
-                    <div>
-                      {Array.from({ length: 7 }).map((_, i) => {
-                        const memberKey = `member${i + 1}`;
-                        const mealPrefKey = `mealPref${i + 1}`;
-                        return guest[memberKey] ? (
-                          <div key={i}>
-                            <strong>Member {i + 1}:</strong> {guest[memberKey]}{" "}
-                            <br />
-                            <strong>Preferences:</strong>{" "}
-                            {renderMealPreferences(guest[mealPrefKey])}
-                          </div>
-                        ) : null;
-                      })}
-                    </div>
-                  )}
-                </td>
+        <div className="rounded-md overflow-x-scroll">
+          <table className="min-w-full bg-white font-gilda">
+            <thead className="text-left bg-custom-pink text-gray-50">
+              <tr>
+                <th
+                  onClick={() => handleSort("name")}
+                  className="p-2 border-b cursor-pointer"
+                >
+                  Név
+                </th>
+                <th
+                  onClick={() => handleSort("email")}
+                  className="p-2 border-b cursor-pointer"
+                >
+                  Email cím
+                </th>
+                <th
+                  onClick={() => handleSort("guests")}
+                  className="p-2 border-b cursor-pointer"
+                >
+                  Kikkel jön
+                </th>
+                <th className="p-2 border-b">Ételintoleranciák</th>
+                <th className="p-2 border-b">Többiek</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {comingGuests.map((guest, index) => (
+                <tr key={index} className="border-t hover:bg-gray-50">
+                  <td className="p-2">{guest.name}</td>
+                  <td className="p-2">{guest.email}</td>
+                  <td className="p-2">{guest.guests === "solo" ? "egyedül" : guest.guests === "partner" ? "párjával" : "családdal"}</td>
+                  <td className="p-2">
+                    {renderMealPreferences(guest.mealPreferences)}
+                  </td>
+                  <td className="p-2">
+                    {guest.guests === "partner" && guest.partnerName && (
+                      <div>
+                        <strong>Pár:</strong> {guest.partnerName} <br />
+                        <strong>Ételintoleranciák:</strong>{" "}
+                        {renderMealPreferences(guest.partnerMealPreferences)}
+                      </div>
+                    )}
+                    {guest.guests === "family" && (
+                      <div>
+                        {Array.from({ length: 7 }).map((_, i) => {
+                          const memberKey = `member${i + 1}`;
+                          const mealPrefKey = `mealPref${i + 1}`;
+                          return guest[memberKey] ? (
+                            <div key={i}>
+                              <strong>Rokon {i + 1}:</strong> {guest[memberKey]}{" "}
+                              <br />
+                              <strong>Ételintoleranciák:</strong>{" "}
+                              {renderMealPreferences(guest[mealPrefKey])}
+                            </div>
+                          ) : null;
+                        })}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <table className="min-w-full bg-white border border-gray-300">
-          <thead className="text-left">
-            <tr>
-              <th
-                onClick={() => handleSort("name")}
-                className="p-2 border-b cursor-pointer"
-              >
-                Name
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {canceledGuests.map((guest, index) => (
-              <tr key={index} className="border-t">
-                <td className="p-2">{guest.name}</td>
+        <div className="rounded-md overflow-hidden">
+          <table className="min-w-full bg-white font-gilda">
+            <thead className="text-left bg-custom-pink text-gray-50">
+              <tr>
+                <th
+                  onClick={() => handleSort("name")}
+                  className="p-2 border-b cursor-pointer"
+                >
+                  Név
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {canceledGuests.map((guest, index) => (
+                <tr key={index} className="border-t hover:bg-gray-100">
+                  <td className="p-2">{guest.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

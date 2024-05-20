@@ -1,4 +1,3 @@
-// src/components/TodoList.jsx
 import { useState, useEffect } from "react";
 import {
   collection,
@@ -9,6 +8,7 @@ import {
   doc,
   orderBy,
   query,
+  Timestamp
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { FaCheck, FaPlus, FaTrash, FaEdit } from "react-icons/fa";
@@ -17,6 +17,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const [newTodoPeriod, setNewTodoPeriod] = useState("12+ hónappal az esküvő előtt");
   const [showCompleted, setShowCompleted] = useState(false);
   const [editTodo, setEditTodo] = useState(null);
   const [editText, setEditText] = useState("");
@@ -37,7 +38,7 @@ const TodoList = () => {
 
   const addTodo = async () => {
     if (newTodo.trim() !== "") {
-      const dueDate = new Date();
+      const dueDate = calculateDueDate(newTodoPeriod);
       const docRef = await addDoc(collection(db, "todos"), {
         text: newTodo,
         dueDate: dueDate,
@@ -45,10 +46,33 @@ const TodoList = () => {
       });
       setTodos([
         ...todos,
-        { text: newTodo, dueDate: dueDate, completed: false, id: docRef.id },
+        { text: newTodo, dueDate: Timestamp.fromDate(dueDate), completed: false, id: docRef.id },
       ]);
       setNewTodo("");
+      setNewTodoPeriod("12+ hónappal az esküvő előtt");
     }
+  };
+
+  const calculateDueDate = (period) => {
+    const dueDate = new Date(weddingDate);
+    if (period === "12+ hónappal az esküvő előtt") {
+      dueDate.setMonth(dueDate.getMonth() - 12);
+    } else if (period === "9-12 hónappal az esküvő előtt") {
+      dueDate.setMonth(dueDate.getMonth() - 9);
+    } else if (period === "6-9 hónappal az esküvő előtt") {
+      dueDate.setMonth(dueDate.getMonth() - 6);
+    } else if (period === "3-6 hónappal az esküvő előtt") {
+      dueDate.setMonth(dueDate.getMonth() - 3);
+    } else if (period === "1-3 hónappal az esküvő előtt") {
+      dueDate.setMonth(dueDate.getMonth() - 1);
+    } else if (period === "1 hónappal az esküvő előtt") {
+      dueDate.setDate(dueDate.getDate() - 30);
+    } else if (period === "1-2 héttel az esküvő előtt") {
+      dueDate.setDate(dueDate.getDate() - 14);
+    } else if (period === "Az esküvő napján") {
+      dueDate.setDate(dueDate.getDate());
+    }
+    return dueDate;
   };
 
   const toggleComplete = async (id) => {
@@ -122,19 +146,33 @@ const TodoList = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Teendők</h2>
-      <div className="flex mb-4">
+    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+      <h2 className="text-4xl font-gilda font-bold mb-4">Teendők</h2>
+      <div className="flex flex-col gap-2 md:flex-row mb-4">
         <input
           type="text"
-          className="flex-grow p-2 border rounded bg-gray-50"
+          className="flex grow p-2 border rounded bg-gray-50 outline-none"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Új teendő hozzáadása..."
         />
+        <select
+          value={newTodoPeriod}
+          onChange={(e) => setNewTodoPeriod(e.target.value)}
+          className="md:ml-2 py-2 border rounded bg-gray-50 outline-none"
+        >
+          <option value="12+ hónappal az esküvő előtt">12+ hónappal az esküvő előtt</option>
+          <option value="9-12 hónappal az esküvő előtt">9-12 hónappal az esküvő előtt</option>
+          <option value="6-9 hónappal az esküvő előtt">6-9 hónappal az esküvő előtt</option>
+          <option value="3-6 hónappal az esküvő előtt">3-6 hónappal az esküvő előtt</option>
+          <option value="1-3 hónappal az esküvő előtt">1-3 hónappal az esküvő előtt</option>
+          <option value="1 hónappal az esküvő előtt">1 hónappal az esküvő előtt</option>
+          <option value="1-2 héttel az esküvő előtt">1-2 héttel az esküvő előtt</option>
+          <option value="Az esküvő napján">Az esküvő napján</option>
+        </select>
         <button
           onClick={addTodo}
-          className="ml-2 p-2 bg-custom-pink text-white rounded"
+          className="md:ml-2 py-2 px-3 flex justify-center md:inline-block bg-custom-pink text-white rounded"
         >
           <FaPlus />
         </button>
@@ -201,10 +239,7 @@ const TodoList = () => {
                                     todo.completed ? "line-through" : ""
                                   }
                                 >
-                                  {todo.text} -{" "}
-                                  {new Date(
-                                    todo.dueDate.seconds * 1000
-                                  ).toLocaleDateString()}
+                                  {todo.text}
                                 </span>
                                 <div className="flex">
                                   <button
