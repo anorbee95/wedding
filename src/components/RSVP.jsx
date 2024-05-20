@@ -4,6 +4,7 @@ import miniLeaves from "../assets/miniLeaves.png";
 import { useState } from "react";
 import { createGuest } from "../services/guest/createGuest";
 import seeYou from "../assets/seeYou.jpg";
+import { Link } from "react-router-dom";
 
 const initialvalues = {
   rsvp: true,
@@ -486,6 +487,11 @@ export default function RSVP() {
                       ? "Hamarosan találkozunk!"
                       : "Sajnáljuk, hogy nem tudsz jönni!"}
                   </p>
+                  {formData.rsvp && (
+                    <Link to="/zene" className="mt-2 peer block rounded-md border text-custom-pink hover:text-gray-50 border-custom-pink hover:bg-custom-pink py-2 pl-3 pr-3 text-sm outline-custom-pink">
+                      Küldd be a kedvenc zenéidet itt!
+                    </Link>
+                  )}
                 </div>
               )}
               {!formData.rsvp && formPhase !== 3 && (

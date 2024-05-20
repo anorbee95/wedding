@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/music",
+    path: "/zene",
     element: <SpotifyFavorites />,
   },
   {
