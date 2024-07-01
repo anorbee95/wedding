@@ -27,7 +27,7 @@ export default function Countdown () {
   }, []);
 
   return (
-    <div className="flex justify-center font-gilda text-zinc-500">
+    <div className="flex font-gilda text-zinc-500">
       <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
         <p className="text-2xl font-bold">{countdown.days}</p>
         <p className="text-sm">nap</p>

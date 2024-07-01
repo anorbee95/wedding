@@ -5,7 +5,9 @@ import { useState } from "react";
 import { createGuest } from "../services/guest/createGuest";
 import seeYou from "../assets/seeYou.jpg";
 import { Link } from "react-router-dom";
-import sendEmail from "../services/email/sendEmail";
+import sendCustomEmail from "../services/email/sendCustomEmail";
+import generateMessage from "../services/email/generateMessage";
+import getLastName from "../services/email/getLastName";
 
 const initialvalues = {
   rsvp: true,
@@ -48,21 +50,44 @@ export default function RSVP() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    sendEmail();
     if (formPhase === 2 || !formData.rsvp) {
       const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) return setFormPhase(3);
+      if (id) {
+        sendCustomEmail({
+          to_email: formData.email,
+          to_name: getLastName(formData.name),
+          subject: "Démi és Norbi Esküvője",
+          message: generateMessage(formData),
+        });
+        return setFormPhase(3);
+      }
     }
     if (!formData.name) return setError("A név mező kitöltése kötelező.");
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       return setError("Helytelen email cím.");
     if (formData.guests === "solo") {
       const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) return setFormPhase(3);
+      if (id) {
+        sendCustomEmail({
+          to_email: "kovacs.demia26@gmail.com",
+          to_name: getLastName(formData.name),
+          subject: "Démi és Norbi Esküvője",
+          message: generateMessage(formData),
+        });
+        return setFormPhase(3);
+      }
     } else if (formData.guests === "partner") {
       if (!formData.partnerName) return setError("Add meg a párod nevét is!");
       const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) return setFormPhase(3);
+      if (id) {
+        sendCustomEmail({
+          to_email: "kovacs.demia26@gmail.com",
+          to_name: getLastName(formData.name),
+          subject: "Démi és Norbi Esküvője",
+          message: generateMessage(formData),
+        });
+        return setFormPhase(3);
+      }
     } else if (formData.guests === "family") {
       if (!formData.numberOfFamilyMembers)
         return setError("Add meg hányan jöttök!");
@@ -491,7 +516,10 @@ export default function RSVP() {
                       : "Sajnáljuk, hogy nem tudsz jönni!"}
                   </p>
                   {formData.rsvp && (
-                    <Link to="/zene" className="mt-2 peer block rounded-md border text-custom-pink hover:text-gray-50 border-custom-pink hover:bg-custom-pink py-2 pl-3 pr-3 text-sm outline-custom-pink">
+                    <Link
+                      to="/zene"
+                      className="mt-2 peer block rounded-md border text-custom-pink hover:text-gray-50 border-custom-pink hover:bg-custom-pink py-2 pl-3 pr-3 text-sm outline-custom-pink"
+                    >
                       Küldd be a kedvenc zenéidet itt!
                     </Link>
                   )}
