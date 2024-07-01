@@ -28,10 +28,10 @@ export default function Reception() {
           Vendégvárás
         </h5>
         <span className="absolute top-6 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
-          16:30
+          17:00
         </span>
-        <p className="mb-3 h-16 font-normal text-gray-700">
-          Részletek hamarosan...
+        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        A vendégvárás a Bukovszki Birtokon 17:00-kor kezdődik. Az apakönyvvezetés 18:00-kor veszi kezdetét, majd 19:00-tól fotózkodásra invitáljuk a vendégeket. Az est fénypontja, a nyitótánc, 19:30-kor következik.
         </p>
         <button
           onClick={openModal}
@@ -82,11 +82,11 @@ export default function Reception() {
               </div>
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-2">Menetrend</h3>
-                <ul className="list-disc list-inside">
-                  <li>17:30 - Visszatérés a birtokra</li>
-                  <li>18:00 - Apakönyvvezetés kezdete</li>
-                  <li>19:00 - Fotózkodás</li>
-                  <li>19:30 - Nyitótánc</li>
+                <ul className="list-none list-inside">
+                  <li><span className="ml-2 text-custom-pink font-bold">17:00</span> - Vendégvárás a birtokon</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">18:00</span> - Apakönyvvezetés kezdete</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">19:00</span> - Fotózkodás</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">19:30</span> - Nyitótánc</li>
                 </ul>
               </div>
               <button

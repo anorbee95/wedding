@@ -1,7 +1,7 @@
 export default async function sendEmail() {
     console.log("meg lett hívva")
   const emailData = {
-    to: "anorbee95@gmail.com",
+    to: "augusztinnorbert@gmail.com",
     subject: "Test Email",
     text: "This is a test email sent from React!",
   };
@@ -16,7 +16,7 @@ export default async function sendEmail() {
     });
 
     const result = await response.json();
-    console.log("Email sent successfully:", result.message);
+    console.log("Email sent successfully:", result);
   } catch (error) {
     console.error("Error sending email:", error);
   }

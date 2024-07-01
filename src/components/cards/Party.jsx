@@ -28,10 +28,10 @@ export default function Party() {
           Lagzi
         </h5>
         <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
-          19:00
+          20:30
         </span>
-        <p className="mb-3 h-16 font-normal text-gray-700">
-          Részletek hamarosan...
+        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        A Bukovszki Birtokon folytatjuk az ünneplést 20:30-kor vacsorával. Az est további részében 22:00-kor játékokkal szórakoztatjuk vendégeinket, majd 23:00-kor a menyecsketánc következik. Az ünneplést 23:30-tól hajnalig tartó bulival zárjuk.
         </p>
         <button
           onClick={openModal}
@@ -82,11 +82,11 @@ export default function Party() {
               </div>
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-2">Menetrend</h3>
-                <ul className="list-disc list-inside">
-                  <li>19:30 - Vacsora</li>
-                  <li>21:00 - Játékok</li>
-                  <li>22:00 - Menyecsketánc</li>
-                  <li>22:30 - Buli</li>
+                <ul className="list-none list-inside">
+                  <li><span className="ml-2 text-custom-pink font-bold">20:30</span> - Vacsora</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">22:00</span> - Játékok</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">23:00</span> - Menyecsketánc</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">23:30</span> - Buli</li>
                 </ul>
               </div>
               <button

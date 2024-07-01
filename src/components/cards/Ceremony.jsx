@@ -28,10 +28,10 @@ export default function Ceremony() {
           Templomi szertartás
         </h5>
         <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
-          15:00
+          16:00
         </span>
-        <p className="mb-3 h-16 font-normal text-gray-700">
-          Részletek hamarosan...
+        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        A templomi szertartásra 15:30-tól várjuk a vendégeket. A ceremónia 16:30-ig tart, majd 17:00-kor indulunk vissza a Bukovszki Birtokra, hogy folytassuk az ünneplést.
         </p>
         <button
           onClick={openModal}
@@ -83,11 +83,11 @@ export default function Ceremony() {
               </div>
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-2">Menetrend</h3>
-                <ul className="list-disc list-inside">
-                  <li>15:30 - Vendégek érkezése</li>
-                  <li>16:00 - Ceremónia kezdete</li>
-                  <li>17:00 - Ceremónia vége</li>
-                  <li>17:30 - Visszatérés a Bukovszki Birtokra</li>
+                <ul className="list-none list-inside">
+                  <li><span className="ml-2 text-custom-pink font-bold">15:30</span> - Vendégek érkezése</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">16:00</span> - Ceremónia kezdete</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">16:30</span> - Ceremónia vége</li>
+                  <li><span className="ml-2 text-custom-pink font-bold">17:00</span> - Visszatérés a Bukovszki Birtokra</li>
                 </ul>
               </div>
               <button
