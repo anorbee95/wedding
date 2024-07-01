@@ -103,6 +103,7 @@ export default function RSVP() {
                 onClick={() =>
                   setFormData((prev) => ({ ...prev, rsvp: false }))
                 }
+                disabled={formPhase > 1}
                 className={`${
                   !formData.rsvp ? "text-red-500" : "text-gray-300"
                 } px-1 md:px-4 py-2 w-32 md:w-48 max-w-[30vw] text-[9px] md:text-xs font-medium bg-white border border-gray-200 rounded-e-lg hover:bg-red-50 hover:text-red-500 focus:z-10 focus:ring-2 focus:ring-red-50 focus:text-red-500`}
