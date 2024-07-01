@@ -5,6 +5,7 @@ import { useState } from "react";
 import { createGuest } from "../services/guest/createGuest";
 import seeYou from "../assets/seeYou.jpg";
 import { Link } from "react-router-dom";
+import sendEmail from "../services/email/sendEmail";
 
 const initialvalues = {
   rsvp: true,
@@ -47,6 +48,7 @@ export default function RSVP() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    sendEmail();
     if (formPhase === 2 || !formData.rsvp) {
       const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) return setFormPhase(3);
