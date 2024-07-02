@@ -69,7 +69,7 @@ export default function RSVP() {
       const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) {
         sendCustomEmail({
-          to_email: "kovacs.demia26@gmail.com",
+          to_email: formData.email,
           to_name: getLastName(formData.name),
           subject: "Démi és Norbi Esküvője",
           message: generateMessage(formData),
@@ -81,7 +81,7 @@ export default function RSVP() {
       const id = await createGuest({ ...formData, submitted: Date.now() });
       if (id) {
         sendCustomEmail({
-          to_email: "kovacs.demia26@gmail.com",
+          to_email: formData.email,
           to_name: getLastName(formData.name),
           subject: "Démi és Norbi Esküvője",
           message: generateMessage(formData),
