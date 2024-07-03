@@ -398,7 +398,7 @@ export default function RSVP() {
                               onChange={(options) =>
                                 setFormData((prev) => ({
                                   ...prev,
-                                  mealPreferences: options.map(
+                                  partnerMealPreferences: options.map(
                                     (option) => option.label
                                   ),
                                 }))
