@@ -7,6 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
 import { createSong } from "../../services/song/createSong";
 import { Link } from "react-router-dom";
+import ThankYou from "./ThankYou";
 
 export default function SpotifyFavorites() {
   const [accessToken, setAccessToken] = useState("");
@@ -16,6 +17,8 @@ export default function SpotifyFavorites() {
   const [offset, setOffset] = useState(0);
   const [total, setTotal] = useState(0);
   const [name, setName] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   const clientId = import.meta.env.VITE_ClientID;
   const clientSecret = import.meta.env.VITE_ClientSecret;
@@ -110,6 +113,18 @@ export default function SpotifyFavorites() {
     searchSongs(searchQuery, newOffset);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsDetailsOpen(true);
+  };
+
+  const toggleDetails = () => {
+    setIsDetailsOpen((prev) => !prev);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || favorites.length === 0) {
@@ -125,10 +140,7 @@ export default function SpotifyFavorites() {
         submitted: Date.now(),
       });
       if (id) {
-        return toast.success("Sikeres beküldés!", {
-          position: "top-center",
-          autoClose: 2000,
-        });
+        return setSubmitted(true);
       }
     } catch (err) {
       return toast.error(err, {
@@ -140,17 +152,35 @@ export default function SpotifyFavorites() {
 
   return (
     <>
-      <div className="bg-gray-100">
-        <div className="pt-6 flex justify-center mx-auto font-gilda">
-          <Link to="/" className="cursor-pointer text-gray-500 text-lg text-center">
-          <span className="flex items-center gap-2"><GrPrevious className="text-sm" /> Vissza az oldalra</span> 
-          </Link>
-        </div>
-        <div className="min-h-screen md:w-[50%] p-2 md:p-8 mx-auto">
-          <div className="font-gilda bg-white p-6 rounded-lg shadow-md mb-8">
-            <details>
-              <summary className="flex justify-between items-center font-medium text-gray-500 cursor-pointer">
-                <h2 className="text-custom-pink text-2xl font-semibold">
+      {submitted ? (
+        <ThankYou />
+      ) : (
+        <div className="relative bg-gray-100">
+          {!!favorites.length && (
+            <button
+              onClick={scrollToTop}
+              className="fixed bottom-6 right-4 px-4 pt-2.5 pb-1.5 2xl:px-10 2xl:py-5 bg-custom-pink text-white rounded-md shadow-md shadow-zinc-400 hover:bg-red-800"
+            >
+              Zenék beküldése
+            </button>
+          )}
+          <div className="pt-6 flex justify-center mx-auto font-gilda">
+            <Link
+              to="/"
+              className="cursor-pointer text-gray-500 text-lg text-center"
+            >
+              <span className="flex items-center gap-2">
+                <GrPrevious className="text-sm" /> Vissza az oldalra
+              </span>
+            </Link>
+          </div>
+          <div className="overflow-visible min-h-screen md:w-[50%] p-2 md:p-8 mx-auto">
+            <div className=" font-gilda bg-white p-6 rounded-lg shadow-md mb-8 z-50">
+              <div
+                onClick={toggleDetails}
+                className="flex justify-between items-center font-medium text-gray-500 cursor-pointer"
+              >
+                <h2 className="sticky top-4 text-custom-pink text-2xl font-semibold">
                   A kedvenc számaid:
                   {!!favorites.length && (
                     <>
@@ -164,157 +194,163 @@ export default function SpotifyFavorites() {
                 <span className="bg-custom-pink-transparent text-custom-pink font-bold text-md me-2 p-2.5 self-center rounded">
                   {favorites.length}
                 </span>
-              </summary>
-              <div className={favorites.length ? "mt-4" : ""}>
-                {favorites.map((song) => (
+              </div>
+              {isDetailsOpen && (
+                <div className={favorites.length ? "mt-4" : ""}>
+                  {favorites.map((song) => (
+                    <div
+                      key={song.id}
+                      className="flex items-center justify-between p-2 bg-gray-50 rounded-lg shadow-sm"
+                    >
+                      <div>
+                        <p className="text-lg font-medium font-gilda">
+                          {song.name}
+                        </p>
+                        <p className="text-sm text-gray-500 font-gilda">
+                          {song.artists.map((artist) => artist.name).join(", ")}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => handleAddFavorite(song)}
+                        className="px-4 py-2 bg-custom-pink text-white font-semibold rounded-lg shadow-md hover:bg-red-800"
+                      >
+                        <MdRemoveCircle />
+                      </button>
+                    </div>
+                  ))}
+                  {!!favorites.length && (
+                    <form
+                      className="mt-4 mx-auto flex flex-col"
+                      onSubmit={handleSubmit}
+                    >
+                      <div className="flex mb-2">
+                        <span className="inline-flex items-center px-3 text-sm bg-custom-pink-transparent border border-e-0 border-gray-300 rounded-s-md">
+                          <FaUserCircle className="text-custom-pink" />
+                        </span>
+                        <input
+                          type="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-custom-pink focus:border-custom-pink block flex-1 min-w-0 w-full text-sm p-2.5"
+                          placeholder="Írd be a neved..."
+                          required
+                        />
+                      </div>
+                      <button
+                        className="peer block w-full rounded-md border text-white bg-custom-pink border-custom-pink py-2 px-3 text-md outline-custom-pink"
+                        type="submit"
+                      >
+                        Kedvenc számaid beküldése!
+                      </button>
+                    </form>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+              <form
+                onSubmit={handleSearchSubmit}
+                className="font-gilda flex items-center space-x-4 mb-4"
+              >
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  placeholder="Keress rá a kedvenc zenéidre..."
+                  className="w-full pt-2.5 pb-1.5 px-2 border border-gray-300 rounded-lg"
+                />
+                <button
+                  type="submit"
+                  className="px-4 pt-2.5 pb-1.5 bg-custom-pink-transparent text-white font-semibold rounded-lg shadow-md hover:bg-custom-pink"
+                >
+                  Keresés
+                </button>
+              </form>
+
+              <div className="space-y-4">
+                {songs.map((song) => (
                   <div
                     key={song.id}
-                    className="flex items-center justify-between p-2 bg-gray-50 rounded-lg shadow-sm"
+                    className="font-gilda flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm"
                   >
                     <div>
-                      <p className="text-lg font-medium font-gilda">
-                        {song.name}
-                      </p>
-                      <p className="text-sm text-gray-500 font-gilda">
-                        {song.artists.map((artist) => artist.name).join(", ")}
-                      </p>
+                      <div>
+                        <p className="text-lg font-medium">{song.name}</p>
+                        <p className="text-sm text-gray-500">
+                          {song.artists.map((artist) => artist.name).join(", ")}
+                        </p>
+                      </div>
+                      <iframe
+                        className="mt-2 h-20"
+                        src={`https://open.spotify.com/embed/track/${song.uri.slice(
+                          14
+                        )}`}
+                        width="250"
+                        height="150"
+                        allow="encrypted-media"
+                      ></iframe>
                     </div>
                     <button
                       onClick={() => handleAddFavorite(song)}
-                      className="px-4 py-2 bg-custom-pink text-white font-semibold rounded-lg shadow-md hover:bg-red-800"
+                      className={`px-4 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-red-900 ${
+                        favorites.includes(song)
+                          ? "bg-red-900"
+                          : "bg-custom-pink"
+                      }`}
                     >
-                      <MdRemoveCircle />
+                      <MdFavorite />
                     </button>
                   </div>
                 ))}
-                {!!favorites.length && (
-                  <form
-                    className="mt-4 mx-auto flex flex-col"
-                    onSubmit={handleSubmit}
-                  >
-                    <div className="flex mb-2">
-                      <span className="inline-flex items-center px-3 text-sm bg-custom-pink-transparent border border-e-0 border-gray-300 rounded-s-md">
-                        <FaUserCircle className="text-custom-pink" />
-                      </span>
-                      <input
-                        type="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-custom-pink focus:border-custom-pink block flex-1 min-w-0 w-full text-sm p-2.5"
-                        placeholder="Írd be a neved..."
-                        required
-                      />
-                    </div>
-                    <button
-                      className="peer block w-full rounded-md border text-white bg-custom-pink border-custom-pink py-2 px-3 text-md outline-custom-pink"
-                      type="submit"
-                    >
-                      Kedvenc számaid beküldése!
-                    </button>
-                  </form>
-                )}
               </div>
-            </details>
-          </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <form
-              onSubmit={handleSearchSubmit}
-              className="font-gilda flex items-center space-x-4 mb-4"
-            >
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                placeholder="Keress rá a kedvenc zenéidre..."
-                className="w-full pt-2.5 pb-1.5 px-2 border border-gray-300 rounded-lg"
-              />
-              <button
-                type="submit"
-                className="px-4 pt-2.5 pb-1.5 bg-custom-pink-transparent text-white font-semibold rounded-lg shadow-md hover:bg-custom-pink"
-              >
-                Keresés
-              </button>
-            </form>
-
-            <div className="space-y-4">
-              {songs.map((song) => (
-                <div
-                  key={song.id}
-                  className="font-gilda flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm"
-                >
-                  <div>
-                    <p className="text-lg font-medium">{song.name}</p>
-                    <p className="text-sm text-gray-500">
-                      {song.artists.map((artist) => artist.name).join(", ")}
-                    </p>
-                    <iframe
-                      className="mt-2 h-20"
-                      src={`https://open.spotify.com/embed/track/${song.uri.slice(
-                        14
-                      )}`}
-                      width="250"
-                      height="150"
-                      allow="encrypted-media"
-                    ></iframe>
+              {!!total && (
+                <div className="flex flex-col justify-center gap-4 items-center mt-4">
+                  <div className="text-sm text-custom-pink-transparent">
+                    <span className="font-semibold text-custom-pink">
+                      {offset + 1}
+                    </span>
+                    -
+                    <span className="font-semibold text-custom-pink">
+                      {offset + 10}
+                    </span>
+                    -ig mutatása a{" "}
+                    <span className="font-semibold text-custom-pink">
+                      {total + " "}
+                    </span>
+                    találatból
                   </div>
-                  <button
-                    onClick={() => handleAddFavorite(song)}
-                    className={`px-4 py-2 text-white font-semibold rounded-lg shadow-md hover:bg-red-900 ${
-                      favorites.includes(song) ? "bg-red-900" : "bg-custom-pink"
-                    }`}
-                  >
-                    <MdFavorite />
-                  </button>
+                  <div className="flex justify-center gap-4 items-center">
+                    <button
+                      onClick={() => handlePagination(offset - 10)}
+                      disabled={offset === 0}
+                      className={`px-4 py-2 rounded-lg shadow-md ${
+                        offset === 0
+                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          : "bg-custom-pink-transparent text-white hover:bg-custom-pink"
+                      }`}
+                    >
+                      <GrPrevious />
+                    </button>
+                    <button
+                      onClick={() => handlePagination(offset + 10)}
+                      disabled={offset + 10 >= total}
+                      className={`px-4 py-2 rounded-lg shadow-md ${
+                        offset + 10 >= total
+                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          : "bg-custom-pink-transparent text-white hover:bg-custom-pink"
+                      }`}
+                    >
+                      <GrNext />
+                    </button>
+                  </div>
                 </div>
-              ))}
+              )}
             </div>
-
-            {!!total && (
-              <div className="flex flex-col justify-center gap-4 items-center mt-4">
-                <div className="text-sm text-custom-pink-transparent">
-                  <span className="font-semibold text-custom-pink">
-                    {offset + 1}
-                  </span>
-                  -
-                  <span className="font-semibold text-custom-pink">
-                    {offset + 10}
-                  </span>
-                  -ig mutatása a{" "}
-                  <span className="font-semibold text-custom-pink">
-                    {total + " "}
-                  </span>
-                  találatból
-                </div>
-                <div className="flex justify-center gap-4 items-center">
-                  <button
-                    onClick={() => handlePagination(offset - 10)}
-                    disabled={offset === 0}
-                    className={`px-4 py-2 rounded-lg shadow-md ${
-                      offset === 0
-                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        : "bg-custom-pink-transparent text-white hover:bg-custom-pink"
-                    }`}
-                  >
-                    <GrPrevious />
-                  </button>
-                  <button
-                    onClick={() => handlePagination(offset + 10)}
-                    disabled={offset + 10 >= total}
-                    className={`px-4 py-2 rounded-lg shadow-md ${
-                      offset + 10 >= total
-                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        : "bg-custom-pink-transparent text-white hover:bg-custom-pink"
-                    }`}
-                  >
-                    <GrNext />
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
-      </div>
+      )}
       <ToastContainer position="top-center" closeOnClick rtl={false} />
     </>
   );
