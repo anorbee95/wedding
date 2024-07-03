@@ -471,6 +471,11 @@ export default function RSVP() {
                               components={animatedComponents}
                               name="mealPreferences"
                               options={mealPreferences}
+                              menuPlacement={
+                                index === formData.numberOfFamilyMembers - 2
+                                  ? "top"
+                                  : "bottom"
+                              }
                               onChange={(options) =>
                                 setFormData((prev) => ({
                                   ...prev,
