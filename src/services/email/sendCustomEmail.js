@@ -11,6 +11,7 @@ export default function sendCustomEmail(details) {
       // Start of the variables defined in the template earlier
       {
         to_email: details.to_email,
+        to_name: details.to_name,
         subject: details.subject,
         message: details.message,
       }
