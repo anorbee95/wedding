@@ -26,7 +26,7 @@ const WeddingInvitationModal = ({ isOpen, onClose }) => {
           <div className="relative w-3/4 flex flex-col items-center mx-auto">
             <button
               onClick={() => onClose()}
-              className="text-xs md:text-lg mt-3 2xl:mt-8 font-gilda text-custom-pink-transparent border border-custom-pink-transparent rounded-md p-1 2xl:p-2 hover:bg-custom-pink-transparent hover:text-gray-50"
+              className="text-xs md:text-lg mt-3 2xl:mt-8 font-gilda text-custom-pink-transparent border border-custom-pink-transparent rounded-md px-1 2xl:p-2 hover:bg-custom-pink-transparent hover:text-gray-200"
             >
               Ugrás az oldalra
             </button>
