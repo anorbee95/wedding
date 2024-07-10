@@ -13,7 +13,7 @@ export default function About() {
           <div className="grid font-gilda grid-cols-3 place-items-center bg-custom-light h-72 w-3/4 mx-auto rounded-md">
             <div className="text-right p-5">
               <h3 className="text-3xl my-2 font-gilda">Démia</h3>
-              <p className="text-gray-500 py-2 text-justify">
+              <p className="text-gray-500 py-2 text-sm 2xl:text-md text-justify">
                 Sokáig autista gyerekekre vigyáztam, amit most is szívből
                 csinálok HR-es munkám mellett. Imádok Netflixezni az ágyból,
                 kirándulni Bütyikével és sushizni Norbival. Szabadidőmben
@@ -53,7 +53,7 @@ export default function About() {
             </div>
             <div className="p-5">
               <h3 className="text-3xl my-2">Norbert</h3>
-              <p className="text-gray-500 py-2 text-justify">
+              <p className="text-gray-500 text-sm 2xl:text-md py-2 text-justify">
                 Villamosmérnöki diplomával a sport világában találtam magam, a
                 Teqball sportcsapat vezetőjeként. Programozást is tanulok, ennek
                 köszönhető ez a weboldal. Hobbim a foci, kondizás, programozás,
