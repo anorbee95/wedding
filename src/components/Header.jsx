@@ -19,7 +19,7 @@ export default function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const options = {
@@ -60,7 +60,7 @@ export default function Header() {
         isScrolled ? "shadow-md bg-white" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[82%] mx-auto md:px-4 lg:px-8">
+      <div className="max-w-[90%] 2xl:max-w-[82%] mx-auto md:px-4 lg:px-8">
         <div className="xl:hidden h-16 flex items-center justify-center">
           <h1
             className="cursor-pointer text-3xl font-alex-brush text-custom-pink"
