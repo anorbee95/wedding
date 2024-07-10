@@ -19,7 +19,7 @@ export default function Engagement() {
           <img className="mt-7" src={engagementIcon} alt="engagementIcon" />
           <h1 className="mt-3 font-gilda uppercase text-2xl">A Jegyesség</h1>
           <p className="text-gray-500 text-lg mt-2">Egészen a lagziig</p>
-          <p className="text-gray-600 text-md mt-4 pr-5 text-justify">
+          <p className="text-gray-600 text-sm 2xl:text-md mt-4 pr-5 text-justify">
             Jegyességünk idejét Bütyikével töltjük boldogságban és szeretetben.
             Bár idén a polgári szertartáson hivatalosan is egybekelünk, az igazi
             nagy ünneplést jövőre tartjuk, ahol veletek együtt szeretnénk

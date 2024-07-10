@@ -21,7 +21,7 @@ export default function FirstMeet() {
             Az első találkozásunk
           </h1>
           <p className="text-gray-500 text-lg mt-2">2018 október 2.</p>
-          <p className="text-gray-600 text-md mt-4 pr-5 text-justify">
+          <p className="text-gray-600 text-sm 2xl:text-md mt-4 pr-5 text-justify">
             A sors Tinder formájában hozott össze minket, és bár kezdetben Démi
             úgy tűnt, hogy egy gyenge dumával lerázza Norbit, az élet mégis
             másképp döntött. Így történt, hogy egy apró reménysugárból végül egy

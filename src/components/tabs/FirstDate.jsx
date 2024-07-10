@@ -21,7 +21,7 @@ export default function FirstDate() {
             Az első randink
           </h1>
           <p className="text-gray-500 text-lg mt-2">2018 november 2.</p>
-          <p className="text-gray-600 text-md mt-4 pr-5 text-justify">
+          <p className="text-gray-600 text-sm 2xl:text-md mt-4 pr-5 text-justify">
             Az első randevúnk a Deák téri Costa Cafeban történt, amely sajnos
             már bezárt, de emlékei örökké élnek bennünk. Egy hosszú, mély
             beszélgetés során azonnal egy hullámhosszon találtuk magunkat. Ez a
