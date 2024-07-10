@@ -1,13 +1,23 @@
 import { useState } from "react";
-import { FaTasks, FaDollarSign, FaUsers, FaMusic, FaBars, FaTimes, FaArrowUp } from "react-icons/fa";
+import {
+  FaTasks,
+  FaDollarSign,
+  FaUsers,
+  FaMusic,
+  FaBars,
+  FaTimes,
+  FaArrowUp,
+} from "react-icons/fa";
 import TodoList from "./components/admin/TodoList";
 import GuestList from "./components/admin/GuestList";
 import FavoriteSongs from "./components/admin/FavSongs";
 import BudgetPlanner from "./components/admin/BudgetPlanner";
+import { useNavigate } from "react-router-dom";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("Todos");
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
+  const navigate = useNavigate();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -57,10 +67,15 @@ export default function Admin() {
         </button>
         <ul className="flex flex-col space-y-2 font-medium text-gray-500">
           <li className="text-center mb-4">
-            <h1 className="cursor-pointer text-4xl font-alex-brush text-custom-pink">
+            <h1
+              onClick={() => navigate("/")}
+              className="cursor-pointer text-4xl font-alex-brush text-custom-pink"
+            >
               Démi & Norbi
             </h1>
-            <h2 className="cursor-pointer text-2xl font-alex-brush text-custom-pink">Admin</h2>
+            <h2 className="cursor-pointer text-2xl font-alex-brush text-custom-pink">
+              Admin
+            </h2>
           </li>
           <li>
             <button
@@ -144,12 +159,17 @@ export default function Admin() {
           </li>
         </ul>
       </div>
-      <ul className="hidden md:block md:w-72 py-4 px-2 text-xs md:text-base flex flex-col space-y-2 font-medium md:border-r border-custom-pink text-gray-500 md:me-4 mb-4 md:mb-0">
+      <ul className="hidden md:block md:w-72 py-4 px-2 text-xs md:text-base space-y-2 font-medium md:border-r border-custom-pink text-gray-500 md:me-4 mb-4 md:mb-0">
         <li className="text-center mb-4">
-          <h1 className="cursor-pointer text-4xl font-alex-brush text-custom-pink">
+          <h1
+            onClick={() => navigate("/")}
+            className="cursor-pointer text-4xl font-alex-brush text-custom-pink"
+          >
             Démi & Norbi
           </h1>
-          <h2 className="cursor-pointer text-2xl font-alex-brush text-custom-pink">Admin</h2>
+          <h2 className="cursor-pointer text-2xl font-alex-brush text-custom-pink">
+            Admin
+          </h2>
         </li>
         <li>
           <button
