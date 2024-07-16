@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { FaCar, FaClock, FaHome } from "react-icons/fa";
-import { GiLinkedRings } from "react-icons/gi";
-import templom from "../../assets/templom.jpg";
+import {
+  FaDoorOpen,
+  FaHeart,
+  FaCamera,
+  FaMicrophone,
+  FaUtensils,
+  FaMusic,
+  FaBirthdayCake,
+  FaUserFriends,
+} from "react-icons/fa";
+import bukovszki2 from "../../assets/bukovszki2.jpg";
 
-export default function Ceremony() {
+export default function Wedding() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -20,22 +28,22 @@ export default function Ceremony() {
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="h-64 overflow-hidden rounded-t-lg">
         <img
-          className="object-cover -translate-y-44"
-          src={templom}
-          alt="templom"
+          className="object-cover scale-110"
+          src={bukovszki2}
+          alt="bukovszki2"
         />
       </div>
       <div className="relative p-5">
         <h5 className="mb-2 text-2xl font-gilda font-bold tracking-tight text-custom-pink">
-          Templomi szertartás
+          Polgári szertartás
         </h5>
         <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
-          16:00
+          18:00
         </span>
         <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
-          A templomi szertartásra 15:30-tól várjuk a vendégeket. A ceremónia
-          16:30-ig tart, majd 17:00-kor indulunk vissza a Bukovszki Birtokra,
-          hogy folytassuk az ünneplést.
+          A vendégvárás a Bukovszki Birtokon 17:00-kor kezdődik. A polgári
+          ceremónia 18:00-kor veszi kezdetét, majd 18:30-tól fotózkodásra
+          invitáljuk a vendégeket. A vacsora 19:30-kor kezdődik.
         </p>
         <button
           onClick={openModal}
@@ -59,7 +67,6 @@ export default function Ceremony() {
           </svg>
         </button>
       </div>
-
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
@@ -72,7 +79,7 @@ export default function Ceremony() {
             <div className="p-5">
               <div className="mb-4">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2725.6985033821957!2d19.689967776799584!3d46.90864753591276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da10d13345cb%3A0xae5f3bb6601b27bb!2sKecskem%C3%A9ti%20Evang%C3%A9likus%20templom!5e0!3m2!1shu!2shu!4v1716226191417!5m2!1shu!2shu"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.672957358705!2d19.59034447680216!3d46.96811533184918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743d514039b3dd5%3A0x40867b7d549f70d7!2sBukovszki%20Birtok!5e0!3m2!1shu!2shu!4v1716225947706!5m2!1shu!2shu"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
@@ -94,58 +101,111 @@ export default function Ceremony() {
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          15:30
+                          17:00
                         </span>
-                        <span>Vendégek érkezése</span>
+                        <span>Vendégvárás</span>
                       </div>
                       <div className="w-1/2 flex justify-start pl-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <FaCar />
+                          <FaDoorOpen />
                         </span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 flex justify-end pr-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <FaClock />
+                          <FaHeart />
                         </span>
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          16:00
+                          18:00
                         </span>
-                        <span>Ceremónia kezdete</span>
+                        <span>Polgári szertartás</span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          16:30
+                          18:30
                         </span>
-                        <span>Ceremónia vége</span>
+                        <span>Fotózás</span>
                       </div>
                       <div className="w-1/2 flex justify-start pl-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <GiLinkedRings />
+                          <FaCamera />
                         </span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 flex justify-end pr-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <FaHome />
+                          <FaMicrophone />
                         </span>
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          17:00
+                          19:00
                         </span>
-                        <span>Visszatérés a Bukovszki Birtokra</span>
+                        <span>Beszédek</span>
+                      </div>
+                    </li>
+                    <li className="flex items-center mb-8 w-full">
+                      <div className="w-1/2 text-right pr-4">
+                        <span className="block text-custom-pink font-bold">
+                          19:30
+                        </span>
+                        <span>Vacsora</span>
+                      </div>
+                      <div className="w-1/2 flex justify-start pl-4">
+                        <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
+                          <FaUtensils />
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-center mb-8 w-full">
+                      <div className="w-1/2 flex justify-end pr-4">
+                        <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
+                          <FaMusic />
+                        </span>
+                      </div>
+                      <div className="w-1/2 text-left pl-4">
+                        <span className="block text-custom-pink font-bold">
+                          21:15
+                        </span>
+                        <span>Nyitótánc</span>
+                      </div>
+                    </li>
+                    <li className="flex items-center mb-8 w-full">
+                      <div className="w-1/2 text-right pr-4">
+                        <span className="block text-custom-pink font-bold">
+                          22:30
+                        </span>
+                        <span>Torta</span>
+                      </div>
+                      <div className="w-1/2 flex justify-start pl-4">
+                        <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
+                          <FaBirthdayCake />
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-center mb-8 w-full">
+                      <div className="w-1/2 flex justify-end pr-4">
+                        <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
+                          <FaUserFriends />
+                        </span>
+                      </div>
+                      <div className="w-1/2 text-left pl-4">
+                        <span className="block text-custom-pink font-bold">
+                          23:45
+                        </span>
+                        <span>Menyecsketánc</span>
                       </div>
                     </li>
                   </ul>
                 </div>
               </div>
+
               <button
                 onClick={closeModal}
                 className="w-full mt-4 px-4 py-2 bg-custom-pink text-white rounded-lg hover:bg-custom-pink-dark"

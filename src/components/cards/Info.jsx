@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { FaMoneyBillWave, FaInfoCircle } from "react-icons/fa";
+import { GiLargeDress  } from "react-icons/gi";
 import bukovszki1 from "../../assets/bukovszki1.jpg";
 
-export default function Reception() {
+export default function Info() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -25,13 +27,15 @@ export default function Reception() {
       </div>
       <div className="relative p-5">
         <h5 className="mb-2 text-2xl font-gilda font-bold tracking-tight text-custom-pink">
-          Vendégvárás
+          Fontos információk
         </h5>
         <span className="absolute top-6 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
-          17:00
+          --:--
         </span>
         <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
-        A vendégvárás a Bukovszki Birtokon 17:00-kor kezdődik. Az apakönyvvezetés 18:00-kor veszi kezdetét, majd 19:00-tól fotózkodásra invitáljuk a vendégeket. Az est fénypontja, a nyitótánc, 19:30-kor következik.
+          Az esküvői meghívó mellé szeretnénk néhány fontos információval
+          szolgálni, hogy minden zökkenőmentes legyen. Az alábbiakban választ
+          adunk a leggyakrabban felmerülő kérdésekre.
         </p>
         <button
           onClick={openModal}
@@ -65,33 +69,39 @@ export default function Reception() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-5">
-              <h2 className="text-2xl font-bold mb-4 font-gilda text-custom-pink">
-                Vendégvárás
+              <h2 className="text-2xl text-center font-bold mb-4 font-gilda text-custom-pink">
+                Fontos információk
               </h2>
-              <div className="mb-4">
-              <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.672957358705!2d19.59034447680216!3d46.96811533184918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743d514039b3dd5%3A0x40867b7d549f70d7!2sBukovszki%20Birtok!5e0!3m2!1shu!2shu!4v1716225947706!5m2!1shu!2shu"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  title="Google Maps"
-                  className="rounded-lg"
-                ></iframe>
-              </div>
-              <div className="mb-4">
-                <h3 className="text-xl font-semibold mb-2">Menetrend</h3>
-                <ul className="list-none list-inside">
-                  <li><span className="ml-2 text-custom-pink font-bold">17:00</span> - Vendégvárás a birtokon</li>
-                  <li><span className="ml-2 text-custom-pink font-bold">18:00</span> - Apakönyvvezetés kezdete</li>
-                  <li><span className="ml-2 text-custom-pink font-bold">19:00</span> - Fotózkodás</li>
-                  <li><span className="ml-2 text-custom-pink font-bold">19:30</span> - Nyitótánc</li>
+              <div className="p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+                <ul className="list-none p-0 space-y-4 text-center font-medium font-gilda">
+                  <li className="flex items-center space-x-4">
+                    <GiLargeDress  className="text-4xl text-red-500" />
+                    <p className="text-lg text-gray-700">
+                      Öltözzetek alkalomhoz illően, kerüljétek a piros és a
+                      fehér színt, és érrezétek jól magatokat!
+                    </p>
+                  </li>
+                  <li className="flex items-center space-x-4">
+                    <FaMoneyBillWave className="text-4xl text-green-500" />
+                    <p className="text-lg text-gray-700">
+                      Mit kérünk nászajándékba? Hogy velünk ünnepeljetek :){" "}
+                      <br />
+                    </p>
+                  </li>
+                  <li className="flex items-center space-x-4">
+                    <FaInfoCircle className="text-4xl text-blue-500" />
+                    <p className="text-lg text-gray-700">
+                      Kérjük, érkezzetek időben a szertartásra, hogy
+                      zökkenőmentesen el tudjunk kezdeni.
+                    </p>
+                  </li>
                 </ul>
               </div>
+
               <button
                 onClick={closeModal}
-                className="mt-4 px-4 py-2 bg-custom-pink text-white rounded-lg hover:bg-custom-pink-dark"
+                className="w-full mt-4 px-4 py-2 bg-custom-pink text-white rounded-lg hover:bg-custom-pink-dark"
               >
                 Bezárás
               </button>

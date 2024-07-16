@@ -1,7 +1,7 @@
 import miniLeaves from "../assets/miniLeaves.png";
 import Ceremony from "./cards/Ceremony";
-import Party from "./cards/Party";
-import Reception from "./cards/Reception";
+import Info from "./cards/Info";
+import Wedding from "./cards/Wedding";
 
 export default function TimePlace() {
   return (
@@ -17,8 +17,8 @@ export default function TimePlace() {
         </h1>
         <div className="flex flex-wrap justify-center gap-8">
           <Ceremony />
-          <Reception />
-          <Party />
+          <Wedding />
+          <Info />
         </div>
       </div>
     </section>
