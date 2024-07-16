@@ -14,7 +14,7 @@ export default {
       },
       backgroundImage: {
         "hero-video": "url('../wedding/src/assets/video.jpg')",
-        "modal-bg": "url('/src/assets/modalBg.png')",
+        "modal-bg": "url('/src/assets/invitation.png')",
       },
       keyframes: {
         "fade-in": {
