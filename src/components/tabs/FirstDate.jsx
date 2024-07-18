@@ -10,14 +10,14 @@ export default function FirstDate() {
           <img className="h-full w-full object-cover" src={date} alt="date" />
           <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
-        <div className="relative m-12 border-t border-r">
+        <div className="font-gilda relative m-12 border-t border-r">
           <img
             className="absolute -top-10 -right-10"
             src={rightTopMotive}
             alt="rightTopMotive"
           />
           <img className="mt-8" src={dateIcon} alt="meetIcon" />
-          <h1 className="mt-4 font-gilda uppercase text-2xl">
+          <h1 className="mt-4 uppercase text-2xl">
             Az első randink
           </h1>
           <p className="text-gray-500 text-lg mt-2">2018 november 2.</p>

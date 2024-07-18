@@ -32,7 +32,7 @@ export default function Info() {
         <span className="absolute top-6 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
           --:--
         </span>
-        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        <p className="font-gilda mb-3 h-16 font-medium text-xs text-justify text-gray-400">
           Az esküvői meghívó mellé szeretnénk néhány fontos információval
           szolgálni, hogy minden zökkenőmentes legyen. Az alábbiakban választ
           adunk a leggyakrabban felmerülő kérdésekre.

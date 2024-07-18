@@ -40,7 +40,7 @@ export default function Wedding() {
         <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
           18:00
         </span>
-        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        <p className="font-gilda mb-3 h-16 font-normal text-xs text-justify text-gray-400">
           A vendégvárás a Bukovszki Birtokon 17:00-kor kezdődik. A polgári
           ceremónia 18:00-kor veszi kezdetét, majd 18:30-tól fotózkodásra
           invitáljuk a vendégeket. A vacsora 19:30-kor kezdődik.

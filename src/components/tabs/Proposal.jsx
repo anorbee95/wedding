@@ -14,14 +14,14 @@ export default function Proposal() {
           />
           <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
-        <div className="relative m-12 border-t border-r">
+        <div className="font-gilda relative m-12 border-t border-r">
           <img
             className="absolute -top-10 -right-10"
             src={rightTopMotive}
             alt="rightTopMotive"
           />
           <img className="mt-8" src={proposeIcon} alt="proposeIcon" />
-          <h1 className="mt-4 font-gilda uppercase text-2xl">A Lánykérés</h1>
+          <h1 className="mt-4 uppercase text-2xl">A Lánykérés</h1>
           <p className="text-gray-500 text-lg mt-2">2023 szeptember 21.</p>
           <p className="text-gray-600 text-sm 2xl:text-md mt-4 pr-5 text-justify">
             Norbi hosszú ideig hallgatta Démi kérlelő szavait a lánykérésről, de

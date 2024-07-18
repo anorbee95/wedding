@@ -10,14 +10,14 @@ export default function FirstMeet() {
           <img className="h-full w-full object-cover" src={meet} alt="meet" />
           <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
-        <div className="relative m-12 border-t border-r">
+        <div className="font-gilda relative m-12 border-t border-r">
           <img
             className="absolute -top-10 -right-10"
             src={rightTopMotive}
             alt="rightTopMotive"
           />
           <img className="mt-8" src={meetIcon} alt="meetIcon" />
-          <h1 className="mt-4 font-gilda uppercase text-2xl">
+          <h1 className="mt-4 uppercase text-2xl">
             Az első találkozásunk
           </h1>
           <p className="text-gray-500 text-lg mt-2">2018 október 2.</p>

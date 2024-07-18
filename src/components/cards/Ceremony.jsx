@@ -32,7 +32,7 @@ export default function Ceremony() {
         <span className="absolute top-5 right-3 bg-custom-pink text-gray-50 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
           16:00
         </span>
-        <p className="mb-3 h-16 font-normal text-xs text-justify text-gray-400">
+        <p className="font-gilda mb-3 h-16 font-normal text-xs text-justify text-gray-400">
           A templomi szertartásra 15:30-tól várjuk a vendégeket. A ceremónia
           16:30-ig tart, majd 17:00-kor indulunk vissza a Bukovszki Birtokra,
           hogy folytassuk az ünneplést.

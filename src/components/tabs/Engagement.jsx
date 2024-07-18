@@ -10,14 +10,14 @@ export default function Engagement() {
           <img className="h-full w-full object-cover" src={fam} alt="fam" />
           <div className="absolute top-4 left-4 w-[92%] md:w-[94%] h-[92%] border"></div>
         </div>
-        <div className="relative m-12 border-t border-r">
+        <div className="font-gilda relative m-12 border-t border-r">
           <img
             className="absolute -top-10 -right-10"
             src={rightTopMotive}
             alt="rightTopMotive"
           />
           <img className="mt-7" src={engagementIcon} alt="engagementIcon" />
-          <h1 className="mt-3 font-gilda uppercase text-2xl">A Jegyesség</h1>
+          <h1 className="mt-3 uppercase text-2xl">A Jegyesség</h1>
           <p className="text-gray-500 text-lg mt-2">Egészen a lagziig</p>
           <p className="text-gray-600 text-sm 2xl:text-md mt-4 pr-5 text-justify">
             Jegyességünk idejét Bütyikével töltjük boldogságban és szeretetben.
