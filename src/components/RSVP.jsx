@@ -3,7 +3,7 @@ import makeAnimated from "react-select/animated";
 import miniLeaves from "../assets/miniLeaves.png";
 import { useState } from "react";
 import { createGuest } from "../services/guest/createGuest";
-import seeYou from "../assets/seeYou.jpg";
+import seeYou from "../assets/bubike.jpg";
 import { Link } from "react-router-dom";
 import sendCustomEmail from "../services/email/sendCustomEmail";
 import generateMessage from "../services/email/generateMessage";
