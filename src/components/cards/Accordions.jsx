@@ -72,7 +72,7 @@ export default function Accordions() {
               aria-controls={`accordion-collapse-body-${index + 1}`}
               onClick={() => toggleAccordion(index)}
             >
-              <span>{item.title}</span>
+              <span className="font-bold">{item.title}</span>
               <FiChevronDown
                 className={`w-5 h-5 transition-transform ${
                   activeIndex === index ? "transform rotate-180" : ""

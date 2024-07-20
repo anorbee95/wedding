@@ -64,7 +64,7 @@ export default function Info() {
           onClick={closeModal}
         >
           <div
-            className="bg-white rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90%] overflow-y-scroll"
+            className="bg-white rounded-lg font-gilda shadow-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90%] overflow-y-scroll"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-5">
