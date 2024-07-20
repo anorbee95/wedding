@@ -14,11 +14,14 @@ export default function About() {
             <div className="text-right p-5">
               <h3 className="text-3xl my-2 font-gilda">Démia</h3>
               <p className="text-gray-500 py-2 text-sm 2xl:text-md text-justify">
-                Sokáig autista gyerekekre vigyáztam, amit most is szívből
-                csinálok HR-es munkám mellett. Imádok Netflixezni az ágyból,
-                kirándulni Bütyikével és sushizni Norbival. Szabadidőmben
-                leginkább pihenek. Vidám, gondoskodó és gyönyörű lélekként élem
-                az életem, mosollyal az arcomon.
+                Mesterségem címere HR-es, mellék állásban gyógypedagógus és
+                harmad állásban meg nem fizetett egyetemista házvezetőnő.
+                Szabadidőmben, Netflix-maratonokat tartok, hűséges társammal
+                Bütyikével. Ha épp nem ennek a szenvedélyemnek hódolok, akkor
+                valószínűleg csocsózok a másodikon vagy sushival tömöm a bendőm
+                az uram kontójára. Sokan mondják, hogy ilyen fiatalon
+                megházasodni olyan, mint korán hazamenni egy buliból, így hát a
+                mottóm, hogy legalább Norbinak nem kell majd fiatal szerető.
               </p>
               <div className="mt-2 flex justify-end gap-4">
                 <a
@@ -54,11 +57,14 @@ export default function About() {
             <div className="p-5">
               <h3 className="text-3xl my-2">Norbert</h3>
               <p className="text-gray-500 text-sm 2xl:text-md py-2 text-justify">
-                Villamosmérnöki diplomával a sport világában találtam magam, a
-                Teqball sportcsapat vezetőjeként. Programozást is tanulok, ennek
-                köszönhető ez a weboldal. Hobbim a foci, kondizás, programozás,
-                utazás és Bütyikével való kirándulás. Vidám, vicces (legalábbis
-                azt hiszem), és maximalista vagyok.
+                Sikerült villamosmérnöki diplomával a zsebemben a sport
+                világában kikötnöm, aminek köszönhetően beutazhattam a világot,
+                és közben programozni is megtanultam. Szóval amúgy, ha bármi nem
+                működik ezen a weboldalon, az az én hibám. Szabadidőmben,
+                Démikét hátrahagyva hódolok a sportszeretetemnek és programozok
+                (mert mi lehetne szórakoztatóbb, mint egész éjjel hibákat
+                keresni a kódban?). Mottóm, és az esküvőre mindenki számára, :
+                „Ezt a kicsit még megiszom, aztán maradunk!.
               </p>
               <div className="mt-2 flex gap-4">
                 <a
