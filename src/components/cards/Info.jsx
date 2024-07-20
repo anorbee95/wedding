@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { FaMoneyBillWave, FaInfoCircle } from "react-icons/fa";
-import { GiLargeDress  } from "react-icons/gi";
 import bukovszki1 from "../../assets/bukovszki1.jpg";
+import Accordions from "./Accordions";
 
 export default function Info() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,31 +71,8 @@ export default function Info() {
               <h2 className="text-2xl text-center font-bold mb-4 font-gilda text-custom-pink">
                 Fontos információk
               </h2>
-              <div className="p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-                <ul className="list-none p-0 space-y-4 text-center font-medium font-gilda">
-                  <li className="flex items-center space-x-4">
-                    <GiLargeDress  className="text-4xl text-red-500" />
-                    <p className="text-lg text-gray-700">
-                      Öltözzetek alkalomhoz illően, kerüljétek a piros és a
-                      fehér színt, és érrezétek jól magatokat!
-                    </p>
-                  </li>
-                  <li className="flex items-center space-x-4">
-                    <FaMoneyBillWave className="text-4xl text-green-500" />
-                    <p className="text-lg text-gray-700">
-                      Mit kérünk nászajándékba? Hogy velünk ünnepeljetek :){" "}
-                      <br />
-                    </p>
-                  </li>
-                  <li className="flex items-center space-x-4">
-                    <FaInfoCircle className="text-4xl text-blue-500" />
-                    <p className="text-lg text-gray-700">
-                      Kérjük, érkezzetek időben a szertartásra, hogy
-                      zökkenőmentesen el tudjunk kezdeni.
-                    </p>
-                  </li>
-                </ul>
+              <div className="p-5 bg-white border border-gray-200 rounded-lg shadow">
+                <Accordions />
               </div>
 
               <button
