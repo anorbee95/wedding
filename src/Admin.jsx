@@ -13,6 +13,7 @@ import GuestList from "./components/admin/GuestList";
 import FavoriteSongs from "./components/admin/FavSongs";
 import BudgetPlanner from "./components/admin/BudgetPlanner";
 import { useNavigate } from "react-router-dom";
+import Invitations from "./components/admin/Invitations";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("Todos");
@@ -29,6 +30,8 @@ export default function Admin() {
         return <GuestList />;
       case "FavoriteSongs":
         return <FavoriteSongs />;
+      case "Invitations":
+        return <Invitations />;
       default:
         return null;
     }
@@ -95,6 +98,26 @@ export default function Admin() {
                 }`}
               />
               Teendők
+            </button>
+          </li>
+          <li>
+            <button
+              className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                activeTab === "Invitations"
+                  ? "text-white bg-custom-pink"
+                  : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100"
+              }`}
+              onClick={() => {
+                setActiveTab("Invitations");
+                setIsOffCanvasOpen(false);
+              }}
+            >
+              <FaTasks
+                className={`w-4 h-4 me-2 ${
+                  activeTab === "Invitations" ? "text-white" : "text-gray-500"
+                }`}
+              />
+              Meghívók
             </button>
           </li>
           <li>
@@ -186,6 +209,23 @@ export default function Admin() {
               }`}
             />
             Teendők
+          </button>
+        </li>
+        <li>
+          <button
+            className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+              activeTab === "Invitations"
+                ? "text-white bg-custom-pink"
+                : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100"
+            }`}
+            onClick={() => setActiveTab("Invitations")}
+          >
+            <FaTasks
+              className={`w-4 h-4 me-2 ${
+                activeTab === "Invitations" ? "text-white" : "text-gray-500"
+              }`}
+            />
+            Meghívók
           </button>
         </li>
         <li>

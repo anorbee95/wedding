@@ -17,6 +17,8 @@ const GuestList = () => {
     fetchGuests();
   }, []);
 
+  console.log(guests);
+
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
@@ -72,7 +74,10 @@ const GuestList = () => {
   const comingGuests = filteredGuests.filter((guest) => guest.rsvp);
   const canceledGuests = filteredGuests.filter((guest) => !guest.rsvp);
 
-  const totalComingGuests = comingGuests.reduce((acc, guest) => acc + countGuests(guest), 0);
+  const totalComingGuests = comingGuests.reduce(
+    (acc, guest) => acc + countGuests(guest),
+    0
+  );
 
   const renderMealPreferences = (preferences) => {
     return preferences.length > 0 ? preferences.join(", ") : "Nincs";
@@ -91,7 +96,9 @@ const GuestList = () => {
           />
           <div className="relative w-11 h-6 bg-gray-200  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom-pink"></div>
           <span className="ms-3 text-sm font-medium">
-            {showComing ? `${totalComingGuests} fő jön` : `${canceledGuests.length} fő nem jön`}
+            {showComing
+              ? `${totalComingGuests} fő jön`
+              : `${canceledGuests.length} fő nem jön`}
           </span>
         </label>
       </div>
@@ -136,7 +143,13 @@ const GuestList = () => {
                 <tr key={index} className="border-t hover:bg-gray-50">
                   <td className="p-2">{guest.name}</td>
                   <td className="p-2">{guest.email}</td>
-                  <td className="p-2">{guest.guests === "solo" ? "egyedül" : guest.guests === "partner" ? "párjával" : "családdal"}</td>
+                  <td className="p-2">
+                    {guest.guests === "solo"
+                      ? "egyedül"
+                      : guest.guests === "partner"
+                      ? "párjával"
+                      : "családdal"}
+                  </td>
                   <td className="p-2">
                     {renderMealPreferences(guest.mealPreferences)}
                   </td>
