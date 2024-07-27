@@ -103,8 +103,9 @@ const SeatingArrangement = () => {
   );
 
   return (
-    <div className="p-4 flex flex-col justify-start md:justify-center items-center overflow-scroll">
-        <h1 className="text-4xl -ml-11 mb-4 font-gilda font-bold">Ülésrend</h1>
+    <div className="p-4 flex flex-col justify-start md:justify-center items-start md:items-center overflow-scroll">
+      <div className="ml-[21.8rem] md:m-0 flex flex-col justify-center items-center">      
+      <h1 className="text-4xl -ml-11 mb-4 font-gilda font-bold">Ülésrend</h1>
       <div className="flex justify-center items-center -ml-11">
         <div
           className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
@@ -119,6 +120,7 @@ const SeatingArrangement = () => {
       </div>
       <div className="w-64 h-16 -ml-11 mb-8 border border-gray-500 flex items-center justify-center">
         <p className="font-gilda text-2xl text-custom-pink">Bukovszki Birtok</p>
+      </div>
       </div>
       <div className="flex justify-center items-center">
         {seating.tables.map((table, tableIndex) => (
