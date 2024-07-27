@@ -15,6 +15,7 @@ export default {
       backgroundImage: {
         "hero-video": "url('../wedding/src/assets/video.jpg')",
         "modal-bg": "url('/src/assets/invitation.png')",
+        "chair": "url('/src/assets/chair.png')",
       },
       keyframes: {
         "fade-in": {

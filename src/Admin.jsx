@@ -7,6 +7,8 @@ import {
   FaBars,
   FaTimes,
   FaArrowUp,
+  FaChair,
+  FaRegEnvelope
 } from "react-icons/fa";
 import TodoList from "./components/admin/TodoList";
 import GuestList from "./components/admin/GuestList";
@@ -14,6 +16,7 @@ import FavoriteSongs from "./components/admin/FavSongs";
 import BudgetPlanner from "./components/admin/BudgetPlanner";
 import { useNavigate } from "react-router-dom";
 import Invitations from "./components/admin/Invitations";
+import SeatingArrangement from "./components/admin/SeatingArrangement";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("Todos");
@@ -32,6 +35,8 @@ export default function Admin() {
         return <FavoriteSongs />;
       case "Invitations":
         return <Invitations />;
+      case "Seating":
+        return <SeatingArrangement />;
       default:
         return null;
     }
@@ -112,7 +117,7 @@ export default function Admin() {
                 setIsOffCanvasOpen(false);
               }}
             >
-              <FaTasks
+              <FaRegEnvelope 
                 className={`w-4 h-4 me-2 ${
                   activeTab === "Invitations" ? "text-white" : "text-gray-500"
                 }`}
@@ -158,6 +163,26 @@ export default function Admin() {
                 }`}
               />
               Vendégek
+            </button>
+          </li>
+          <li>
+            <button
+              className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                activeTab === "Seating"
+                  ? "text-white bg-custom-pink"
+                  : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100"
+              }`}
+              onClick={() => {
+                setActiveTab("Seating");
+                setIsOffCanvasOpen(false);
+              }}
+            >
+              <FaChair 
+                className={`w-4 h-4 me-2 ${
+                  activeTab === "Seating" ? "text-white" : "text-gray-500"
+                }`}
+              />
+              Ülésrend
             </button>
           </li>
           <li>
@@ -220,7 +245,7 @@ export default function Admin() {
             }`}
             onClick={() => setActiveTab("Invitations")}
           >
-            <FaTasks
+            <FaRegEnvelope 
               className={`w-4 h-4 me-2 ${
                 activeTab === "Invitations" ? "text-white" : "text-gray-500"
               }`}
@@ -260,6 +285,23 @@ export default function Admin() {
               }`}
             />
             Vendégek
+          </button>
+        </li>
+        <li>
+          <button
+            className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+              activeTab === "Seating"
+                ? "text-white bg-custom-pink"
+                : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100"
+            }`}
+            onClick={() => setActiveTab("Seating")}
+          >
+            <FaChair
+              className={`w-4 h-4 me-2 ${
+                activeTab === "Seating" ? "text-white" : "text-gray-500"
+              }`}
+            />
+            Ülésrend
           </button>
         </li>
         <li>
