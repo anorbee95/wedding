@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
+import { Tooltip } from "react-tippy";
 
 const GuestList = () => {
   const [guests, setGuests] = useState([]);
@@ -80,7 +81,7 @@ const GuestList = () => {
   );
 
   const renderMealPreferences = (preferences) => {
-    return preferences.length > 0 ? preferences.join(", ") : "Nincs";
+    return preferences.length > 0 ? preferences.join(", ") : "Mindenevő";
   };
 
   return (
@@ -135,7 +136,7 @@ const GuestList = () => {
                   Kikkel jön
                 </th>
                 <th className="p-2 border-b">Ételintoleranciák</th>
-                <th className="p-2 border-b">Többiek</th>
+                <th className="p-2 border-b">RSVP</th>
               </tr>
             </thead>
             <tbody>
@@ -144,39 +145,26 @@ const GuestList = () => {
                   <td className="p-2">{guest.name}</td>
                   <td className="p-2">{guest.email}</td>
                   <td className="p-2">
-                    {guest.guests === "solo"
-                      ? "egyedül"
-                      : guest.guests === "partner"
-                      ? "párjával"
-                      : "családdal"}
+                    <Tooltip
+                      className="cursor-pointer"
+                      title={`${guest.with.length ? guest.with.join(", ") : ""}`}
+                      position="top"
+                      trigger="mouseenter"
+                      arrow={true}
+                      theme="light"
+                    >
+                      {guest.guests === "solo"
+                        ? "egyedül"
+                        : guest.guests === "partner"
+                        ? "párjával"
+                        : "családdal"}
+                    </Tooltip>
                   </td>
                   <td className="p-2">
                     {renderMealPreferences(guest.mealPreferences)}
                   </td>
-                  <td className="p-2">
-                    {guest.guests === "partner" && guest.partnerName && (
-                      <div>
-                        <strong>Pár:</strong> {guest.partnerName} <br />
-                        <strong>Ételintoleranciák:</strong>{" "}
-                        {renderMealPreferences(guest.partnerMealPreferences)}
-                      </div>
-                    )}
-                    {guest.guests === "family" && (
-                      <div>
-                        {Array.from({ length: 7 }).map((_, i) => {
-                          const memberKey = `member${i + 1}`;
-                          const mealPrefKey = `mealPref${i + 1}`;
-                          return guest[memberKey] ? (
-                            <div key={i}>
-                              <strong>Rokon {i + 1}:</strong> {guest[memberKey]}{" "}
-                              <br />
-                              <strong>Ételintoleranciák:</strong>{" "}
-                              {renderMealPreferences(guest[mealPrefKey])}
-                            </div>
-                          ) : null;
-                        })}
-                      </div>
-                    )}
+                  <td className={`p-2 ${guest.rsvp ? "" : "text-red-500"}`}>
+                    {guest.rsvp ? "Ott lesz" : "Nem jön"}
                   </td>
                 </tr>
               ))}

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import sendCustomEmail from "../services/email/sendCustomEmail";
 import generateMessage from "../services/email/generateMessage";
 import getLastName from "../services/email/getLastName";
+import formatRSVPData from "../services/formatRSVPData";
 
 const initialvalues = {
   rsvp: true,
@@ -50,45 +51,58 @@ export default function RSVP() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formPhase === 2 || !formData.rsvp) {
-      const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) {
-        sendCustomEmail({
-          to_email: formData.email,
-          to_name: getLastName(formData.name),
-          subject: "Démi és Norbi Esküvője",
-          message: generateMessage(formData),
-        });
-        return setFormPhase(3);
-      }
-    }
+
     if (!formData.name) return setError("A név mező kitöltése kötelező.");
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       return setError("Helytelen email cím.");
+
+    // Extract the formatted data based on guest type
+    const formattedDataArray = formatRSVPData(formData);
+
+    // Check if we are in the correct form phase or the RSVP is false
+    if (formPhase === 2 || !formData.rsvp) {
+      for (let guestData of formattedDataArray) {
+        await createGuest(guestData);
+      }
+      // Send one email after all guests have been created
+      sendCustomEmail({
+        to_email: formData.email,
+        to_name: getLastName(formData.name),
+        subject: "Démi és Norbi Esküvője",
+        message: generateMessage(formData),
+      });
+      return setFormPhase(3);
+    }
+
+    // Handling solo guests
     if (formData.guests === "solo") {
-      const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) {
-        sendCustomEmail({
-          to_email: formData.email,
-          to_name: getLastName(formData.name),
-          subject: "Démi és Norbi Esküvője",
-          message: generateMessage(formData),
-        });
-        return setFormPhase(3);
-      }
-    } else if (formData.guests === "partner") {
+      await createGuest(formattedDataArray[0]);
+      sendCustomEmail({
+        to_email: formData.email,
+        to_name: getLastName(formData.name),
+        subject: "Démi és Norbi Esküvője",
+        message: generateMessage(formData),
+      });
+      return setFormPhase(3);
+    }
+
+    // Handling partner guests
+    else if (formData.guests === "partner") {
       if (!formData.partnerName) return setError("Add meg a párod nevét is!");
-      const id = await createGuest({ ...formData, submitted: Date.now() });
-      if (id) {
-        sendCustomEmail({
-          to_email: formData.email,
-          to_name: getLastName(formData.name),
-          subject: "Démi és Norbi Esküvője",
-          message: generateMessage(formData),
-        });
-        return setFormPhase(3);
+      for (let guestData of formattedDataArray) {
+        await createGuest(guestData);
       }
-    } else if (formData.guests === "family") {
+      sendCustomEmail({
+        to_email: formData.email,
+        to_name: getLastName(formData.name),
+        subject: "Démi és Norbi Esküvője",
+        message: generateMessage(formData),
+      });
+      return setFormPhase(3);
+    }
+
+    // Handling family guests
+    else if (formData.guests === "family") {
       if (!formData.numberOfFamilyMembers)
         return setError("Add meg hányan jöttök!");
       if (formData.numberOfFamilyMembers < 2)
@@ -433,7 +447,7 @@ export default function RSVP() {
               )}
               {formData.rsvp && formPhase === 2 && (
                 <form className="mt-2 px-4">
-                  <div className="max-h-[34rem] overflow-scroll">
+                  <div className={`max-h-[34rem] ${formData.numberOfFamilyMembers > 3 ?  "overflow-scroll" : ""}`}>
                     {Array.from({
                       length: formData.numberOfFamilyMembers - 1,
                     }).map((_, index) => (
@@ -472,7 +486,7 @@ export default function RSVP() {
                               name="mealPreferences"
                               options={mealPreferences}
                               menuPlacement={
-                                index === formData.numberOfFamilyMembers - 2
+                                index && index === formData.numberOfFamilyMembers - 2
                                   ? "top"
                                   : "bottom"
                               }

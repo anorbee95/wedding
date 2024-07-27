@@ -125,14 +125,14 @@ export default function Invitations() {
             className="sr-only peer"
           />
           <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-custom-pink-transparent peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom-pink"></div>
-          <span className="ml-2 text-[8px] md:text-xs mt-1 font-gilda font-semibold">
+          <span className="ml-2 text-[8px] md:text-lg mt-1 font-gilda font-semibold">
             Meghívott vendégek elrejtése
           </span>
         </label>
         <select
           value={guestOfFilter}
           onChange={(e) => setGuestOfFilter(e.target.value)}
-          className="py-1 px-3 border text-xs md:text-sm border-gray-300 rounded"
+          className="py-1 px-3 border text-xs md:text-lg border-gray-300 rounded"
         >
           <option value="Összes">Összes vendég</option>
           <option value="Démi">Démi vendégei</option>

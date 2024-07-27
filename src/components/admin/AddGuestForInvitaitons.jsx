@@ -51,7 +51,7 @@ export default function AddGuestForInvitations() {
     <div>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="px-2 md:px-4 py-2 text-[10px] bg-custom-pink hover:bg-red-900 text-white rounded"
+        className="font-gilda px-2 md:px-4 py-2 text-[10px] md:text-lg bg-custom-pink hover:bg-red-900 text-white rounded"
       >
         Vendég hozzáadása
       </button>

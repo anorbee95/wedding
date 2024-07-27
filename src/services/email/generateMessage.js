@@ -46,15 +46,25 @@ export default function generateMessage(formData) {
   }
 
   if (formData.guests === "family" && formData.numberOfFamilyMembers) {
+    if (formData.mealPreferences.length > 0) {
+      message +=
+        "Ételpreferenciád a következők: " +
+        formData.mealPreferences.join(", ") +
+        ".\n";
+    } else {
+      message += "Ételpreferenciád: mindenevő :D\n\n";
+    }
     for (let i = 1; i <= formData.numberOfFamilyMembers; i++) {
       if (formData[`member${i}`]) {
         message += `${i}. családtag  neve: ${formData[`member${i}`]}.\n`;
         if (formData[`mealPref${i}`].length > 0) {
-          message += `${i}. családtag  ételpreferenciái: ${formData[
+          message += `${formData[`member${i}`]}  ételpreferenciái: ${formData[
             `mealPref${i}`
           ].join(", ")}.\n\n`;
         } else {
-          message += `Családtag ${i} ételpreferenciája: mindenevő :D\n\n`;
+          message += `${
+            formData[`member${i}`]
+          } ételpreferenciája: mindenevő :D\n\n`;
         }
       }
     }
