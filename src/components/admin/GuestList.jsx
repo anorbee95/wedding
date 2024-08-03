@@ -85,7 +85,7 @@ const GuestList = () => {
   };
 
   return (
-    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+    <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <h2 className="text-4xl font-gilda font-bold mb-4">Vendéglista</h2>
       <div className="flex mb-4">
         <label className="inline-flex items-center cursor-pointer">
@@ -98,8 +98,8 @@ const GuestList = () => {
           <div className="relative w-11 h-6 bg-gray-200  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom-pink"></div>
           <span className="ms-3 text-sm font-medium">
             {showComing
-              ? `${totalComingGuests} fő jön`
-              : `${canceledGuests.length} fő nem jön`}
+              ? `${totalComingGuests} fő jelezte, hogy jön`
+              : `${canceledGuests.length} fő jelezte, hogy nem jön`}
           </span>
         </label>
       </div>
@@ -136,7 +136,8 @@ const GuestList = () => {
                   Kikkel jön
                 </th>
                 <th className="p-2 border-b">Ételintoleranciák</th>
-                <th className="p-2 border-b">RSVP</th>
+                <th className="p-2 border-b text-center">Szállás</th>
+                <th className="p-2 border-b text-center">RSVP</th>
               </tr>
             </thead>
             <tbody>
@@ -147,7 +148,7 @@ const GuestList = () => {
                   <td className="p-2">
                     <Tooltip
                       className="cursor-pointer"
-                      title={`${guest.with.length ? guest.with.join(", ") : ""}`}
+                      title={`${guest?.with?.length ? guest.with.join(", ") : ""}`}
                       position="top"
                       trigger="mouseenter"
                       arrow={true}
@@ -160,10 +161,13 @@ const GuestList = () => {
                         : "családdal"}
                     </Tooltip>
                   </td>
-                  <td className="p-2">
+                  <td className="p-2 md:w-64">
                     {renderMealPreferences(guest.mealPreferences)}
                   </td>
-                  <td className={`p-2 ${guest.rsvp ? "" : "text-red-500"}`}>
+                  <td className={`text-center ${guest.accomodation ?  "" : "text-red-500"}`}>
+                    {guest.accomodation ? "Igen" : "Nem"}
+                  </td>
+                  <td className={`p-2 text-center ${guest.rsvp ? "" : "text-red-500"}`}>
                     {guest.rsvp ? "Ott lesz" : "Nem jön"}
                   </td>
                 </tr>
