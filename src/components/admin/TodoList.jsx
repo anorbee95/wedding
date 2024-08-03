@@ -146,7 +146,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+    <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <h2 className="text-4xl font-gilda font-bold mb-4">Teendők</h2>
       <div className="flex flex-col gap-2 md:flex-row mb-4">
         <input
