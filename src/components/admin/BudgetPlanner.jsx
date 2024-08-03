@@ -133,7 +133,7 @@ const Budget = () => {
   const { totalPaid, totalDue, remainingBudget } = calculateStatistics();
 
   return (
-    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+    <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <h2 className="text-4xl font-gilda font-bold mb-4">Költségvetés</h2>
       <div className="mb-6 p-4 rounded-lg font-gilda bg-custom-pink text-gray-50 font-bold text-base md:text-2xl">
         <div className="flex justify-between mb-2">

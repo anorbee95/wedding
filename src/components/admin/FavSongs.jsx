@@ -82,7 +82,7 @@ const FavoriteSongs = () => {
   );
 
   return (
-    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+    <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <h2 className="text-4xl font-gilda font-bold mb-4">Kívánságlista</h2>
       <div className=" font-gilda mb-4">
         <input

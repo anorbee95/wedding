@@ -104,23 +104,25 @@ const SeatingArrangement = () => {
 
   return (
     <div className="p-4 flex flex-col justify-start md:justify-center items-start md:items-center overflow-scroll">
-      <div className="ml-[21.8rem] md:m-0 flex flex-col justify-center items-center">      
-      <h1 className="text-4xl -ml-11 mb-4 font-gilda font-bold">Ülésrend</h1>
-      <div className="flex justify-center items-center -ml-11">
-        <div
-          className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
-        >
-          <p className="mt-4 text-base">Démi</p>
+      <div className="ml-[21.8rem] md:m-0 flex flex-col justify-center items-center">
+        <h1 className="text-4xl -ml-11 mb-4 font-gilda font-bold">Ülésrend</h1>
+        <div className="flex justify-center items-center -ml-11">
+          <div
+            className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
+          >
+            <p className="mt-4 text-base">Démi</p>
+          </div>
+          <div
+            className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
+          >
+            <p className="mt-4 text-base">Norbi</p>
+          </div>
         </div>
-        <div
-          className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
-        >
-          <p className="mt-4 text-base">Norbi</p>
+        <div className="w-64 h-16 -ml-11 mb-8 border rounded border-gray-500 flex items-center justify-center">
+          <p className="font-gilda text-2xl text-custom-pink">
+            Bukovszki Birtok
+          </p>
         </div>
-      </div>
-      <div className="w-64 h-16 -ml-11 mb-8 border border-gray-500 flex items-center justify-center">
-        <p className="font-gilda text-2xl text-custom-pink">Bukovszki Birtok</p>
-      </div>
       </div>
       <div className="flex justify-center items-center">
         {seating.tables.map((table, tableIndex) => (
@@ -159,43 +161,40 @@ const SeatingArrangement = () => {
               className={`${
                 tableIndex % 2
                   ? "w-12"
-                  : "min-h-screen h-[1400px] w-16 border border-gray-500"
+                  : "min-h-screen h-[1400px] w-16 rounded border border-gray-500"
               }`}
             />
           </>
         ))}
-
       </div>
       {showGuestPopup && (
-  <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
-    <div
-      ref={popupRef}
-      className="bg-white bg-opacity-80 md:-ml-64 min-w-[30%] min-h-[50%] p-4 rounded shadow-lg max-h-80 overflow-y-auto w-80 relative"
-      style={{ transform: 'translate(-25%, -90%)', top: '40%', left: '20%' }}
-    >
-      <h2 className="font-gilda text-custom-pink text-4xl font-bold my-4">
-        Vendég ideültetése
-      </h2>
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Keress a vedégek között..."
-        className="mb-2 p-2 w-full border opacity-80 border-gray-300 rounded"
-      />
-      {availableGuests.map((guest, index) => (
-        <div
-          key={index}
-          className="p-2 cursor-pointer rounded-md bg-custom-pink bg-opacity-20 hover:bg-opacity-60 my-1"
-          onClick={() => handleGuestSelect(guest)}
-        >
-          {guest.name}
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
+          <div
+            ref={popupRef}
+            className="bg-white bg-opacity-80 md:ml-52 min-w-[30%] min-h-[50%] p-4 rounded shadow-lg max-h-[80vh] overflow-y-auto w-80"
+          >
+            <h2 className="font-gilda text-custom-pink text-3xl md:text-4xl font-bold my-4">
+              Vendég ideültetése
+            </h2>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Keress a vedégek között..."
+              className="mb-2 p-2 w-full border opacity-80 border-gray-300 rounded"
+            />
+            {availableGuests.map((guest, index) => (
+              <div
+                key={index}
+                className="p-2 cursor-pointer rounded-md bg-custom-pink bg-opacity-20 hover:bg-opacity-60 hover:text-white my-1"
+                onClick={() => handleGuestSelect(guest)}
+              >
+                {guest.name}
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
-
+      )}
     </div>
   );
 };

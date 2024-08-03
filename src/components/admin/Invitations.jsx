@@ -96,7 +96,7 @@ export default function Invitations() {
   };
 
   return (
-    <div className="mx-auto text-xs md:text-base lg:max-w-[80%] md:p-4">
+    <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2 font-gilda font-bold">
           <h2 className="text-2xl md:text-4xl">Meghívók</h2>
@@ -132,7 +132,7 @@ export default function Invitations() {
         <select
           value={guestOfFilter}
           onChange={(e) => setGuestOfFilter(e.target.value)}
-          className="py-1 px-3 border text-xs md:text-lg border-gray-300 rounded"
+          className="py-1 px-3 font-gilda border text-xs md:text-lg border-gray-300 rounded"
         >
           <option value="Összes">Összes vendég</option>
           <option value="Démi">Démi vendégei</option>
