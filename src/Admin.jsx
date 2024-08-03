@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaTasks,
   FaDollarSign,
@@ -19,9 +19,14 @@ import Invitations from "./components/admin/Invitations";
 import SeatingArrangement from "./components/admin/SeatingArrangement";
 
 export default function Admin() {
-  const [activeTab, setActiveTab] = useState("Todos");
+  const initialTab = localStorage.getItem("activeTab") || "Todos";
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -117,7 +122,7 @@ export default function Admin() {
                 setIsOffCanvasOpen(false);
               }}
             >
-              <FaRegEnvelope 
+              <FaRegEnvelope
                 className={`w-4 h-4 me-2 ${
                   activeTab === "Invitations" ? "text-white" : "text-gray-500"
                 }`}
@@ -177,7 +182,7 @@ export default function Admin() {
                 setIsOffCanvasOpen(false);
               }}
             >
-              <FaChair 
+              <FaChair
                 className={`w-4 h-4 me-2 ${
                   activeTab === "Seating" ? "text-white" : "text-gray-500"
                 }`}
@@ -245,7 +250,7 @@ export default function Admin() {
             }`}
             onClick={() => setActiveTab("Invitations")}
           >
-            <FaRegEnvelope 
+            <FaRegEnvelope
               className={`w-4 h-4 me-2 ${
                 activeTab === "Invitations" ? "text-white" : "text-gray-500"
               }`}
