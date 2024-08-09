@@ -15,7 +15,8 @@ export default function AddGuestForInvitations() {
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === "priority") value = Number(value);
     setGuestData((prevData) => ({
       ...prevData,
       [name]: value,
