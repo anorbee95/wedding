@@ -199,7 +199,7 @@ export default function Wedding() {
                         <span className="block text-custom-pink font-bold">
                           00:00
                         </span>
-                        <span>Székelykáposzta és tánc</span>
+                        <span>Töltött káposzta és tánc</span>
                       </div>
                     </li>
                   </ul>
