@@ -119,7 +119,7 @@ export default function Wedding() {
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          18:00
+                          17:30
                         </span>
                         <span>Polgári szertartás</span>
                       </div>
@@ -145,15 +145,15 @@ export default function Wedding() {
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          19:00
+                          19:50
                         </span>
-                        <span>Beszédek</span>
+                        <span>Pohárköszöntő</span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          19:30
+                          20:00
                         </span>
                         <span>Vacsora</span>
                       </div>
@@ -171,7 +171,7 @@ export default function Wedding() {
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          21:15
+                          21:30
                         </span>
                         <span>Nyitótánc</span>
                       </div>
@@ -179,7 +179,7 @@ export default function Wedding() {
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          22:30
+                          23:30
                         </span>
                         <span>Torta</span>
                       </div>
@@ -197,9 +197,9 @@ export default function Wedding() {
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          23:45
+                          00:00
                         </span>
-                        <span>Menyecsketánc</span>
+                        <span>Dorbézolás</span>
                       </div>
                     </li>
                   </ul>

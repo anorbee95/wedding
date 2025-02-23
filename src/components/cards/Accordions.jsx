@@ -11,13 +11,13 @@ const data = [
   {
     title: "PARKOLÁS",
     content: [
-      "Ne aggódj a parkolás miatt, mert a helyszínen bőven van hely a kocsidnak, akár busz méretű is! Ha pedig egy közeli szálláson pihennél meg az esküvő után, nyugodtan hagyd itt az autót – reggel is itt fog várni, biztonságban. Ha nem is autóval jössz vagy nem te vezetsz, akkor rögtön koncentrálhatsz az ivásra.",
+      "Ne aggódjatok a parkolás miatt! A templomi szertartás után nyugodtan hagyhatjátok az autókat az Aranyhomok Business Wellness Hotel parkolójában, mert transzfert biztosítunk a templomtól a Bukovszki birtokra. Ha mégis autóval érkeznétek a birtokra, ott is bőséges parkolóhely áll rendelkezésre. A lagzi végén pedig ismét lesz transzfer vissza a hotelbe, így bátran élvezhetitek az estét!",
     ],
   },
   {
     title: "SZÁLLÁS",
     content: [
-      "Amennyiben szeretnétek szállást a helyszín közelében, kérlek jelezzétek az RSVP során, és keresni fogunk benneteket a részletekkel kapcsolatosan. Így nyugodtan bulizhattok és ihattok velünk egész éjjel, reggel pedig könnyedén visszajuthattok az autóitokhoz – még kócosan is!",
+      "A szállás előre le van foglalva számotokra az Aranyhomok Business Wellness Hotelben (cím: 6000 Kecskemét, Kossuth tér 3.), közvetlenül a templommal szemben. Innen könnyen át tudtok jutni autóval a Bukovszki birtokra, de szervezünk fuvart is, hogy az autókat biztonságban a hotelnél hagyhassátok. A lagzi után pedig transzfer lesz vissza a hotelbe, hogy gondtalanul bulizhassatok és ünnepelhessetek velünk egész éjjel!",
     ],
   },
   {

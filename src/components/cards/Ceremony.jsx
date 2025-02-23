@@ -94,9 +94,9 @@ export default function Ceremony() {
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          15:30
+                          14:00
                         </span>
-                        <span>Vendégek érkezése</span>
+                        <span>Átvehető a szállás</span>
                       </div>
                       <div className="w-1/2 flex justify-start pl-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
