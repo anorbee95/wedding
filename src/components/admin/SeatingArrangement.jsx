@@ -95,8 +95,8 @@ const SeatingArrangement = () => {
   };
 
   const assignedGuests = seating.tables
-    .flatMap((table) => table.chairs.map((chair) => chair.guest))
-    .filter((guest) => guest !== null);
+    ?.flatMap((table) => table.chairs.map((chair) => chair.guest))
+    ?.filter((guest) => guest !== null);
 
   const availableGuests = filteredGuests.filter(
     (guest) => !assignedGuests.find((ag) => ag?.name === guest.name)
