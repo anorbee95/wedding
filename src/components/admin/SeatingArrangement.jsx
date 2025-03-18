@@ -5,12 +5,12 @@ import { CiSquareRemove } from "react-icons/ci";
 
 const initialSeating = {
   tables: [
-    { chairs: Array(16).fill({ guest: null }) },
-    { chairs: Array(16).fill({ guest: null }) },
-    { chairs: Array(16).fill({ guest: null }) },
-    { chairs: Array(16).fill({ guest: null }) },
-    { chairs: Array(16).fill({ guest: null }) },
-    { chairs: Array(16).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
+    { chairs: Array(18).fill({ guest: null }) },
   ],
 };
 
@@ -161,7 +161,7 @@ const SeatingArrangement = () => {
               className={`${
                 tableIndex % 2
                   ? "w-12"
-                  : "min-h-screen h-[1400px] w-16 rounded border border-gray-500"
+                  : "min-h-screen h-[1600px] w-16 rounded border border-gray-500"
               }`}
             />
           </>
