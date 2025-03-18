@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  updateDoc,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { CiSquareRemove } from "react-icons/ci";
 
