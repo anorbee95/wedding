@@ -108,12 +108,12 @@ const SeatingArrangement = () => {
         <h1 className="text-4xl -ml-11 mb-4 font-gilda font-bold">Ülésrend</h1>
         <div className="flex justify-center items-center -ml-11">
           <div
-            className={h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2}
+            className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
           >
             <p className="mt-4 text-base">Démi</p>
           </div>
           <div
-            className={h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2}
+            className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat text-[10px] text-center flex justify-center items-center cursor-pointer mb-2`}
           >
             <p className="mt-4 text-base">Norbi</p>
           </div>
@@ -131,15 +131,15 @@ const SeatingArrangement = () => {
               {table.chairs.map((chair, chairIndex) => (
                 <div
                   key={chairIndex}
-                  className={h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat ${
+                  className={`h-20 w-20 bg-chair bg-contain bg-center bg-no-repeat ${
                     tableIndex % 2 ? "rotate-90" : "-rotate-90"
-                  } text-[10px] text-center flex justify-center items-center cursor-pointer mb-2 relative}
+                  } text-[10px] text-center flex justify-center items-center cursor-pointer mb-2 relative`}
                   onClick={() => handleChairClick(tableIndex, chairIndex)}
                 >
                   <p
-                    className={mt-4 w-10 ${
+                    className={`mt-4 w-10 ${
                       tableIndex % 2 ? "-rotate-90" : "rotate-90"
-                    }}
+                    }`}
                   >
                     {chair.guest ? chair.guest.name : "Szabad"}
                   </p>
@@ -158,11 +158,11 @@ const SeatingArrangement = () => {
               ))}
             </div>
             <div
-              className={${
+              className={`${
                 tableIndex % 2
                   ? "w-12"
                   : "min-h-screen h-[1600px] w-16 rounded border border-gray-500"
-              }}
+              }`}
             />
           </>
         ))}
