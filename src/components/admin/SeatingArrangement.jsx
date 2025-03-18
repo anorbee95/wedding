@@ -35,8 +35,17 @@ const SeatingArrangement = () => {
 
   useEffect(() => {
     const fetchSeating = async () => {
-      const querySnapshot = await getDocs(collection(db, "seating"));
-      setSeating(querySnapshot.docs[0].data());
+      const seatingRef = collection(db, "seating");
+      const querySnapshot = await getDocs(seatingRef);
+
+      if (querySnapshot.empty) {
+        // If seating does not exist, create an empty one
+        const newSeatingRef = doc(db, "seating", "seatingData");
+        await setDoc(newSeatingRef, initialSeating);
+        setSeating(initialSeating);
+      } else {
+        setSeating(querySnapshot.docs[0].data());
+      }
     };
 
     fetchSeating();
