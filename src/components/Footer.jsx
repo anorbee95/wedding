@@ -4,7 +4,6 @@ import leonArt from "../assets/partners/leonArt.png";
 import rDj from "../assets/partners/rDj.png";
 import whiteHouse from "../assets/partners/whiteHouse.png";
 import bukovszki from "../assets/partners/bukovszki.png";
-import bagatell from "../assets/partners/bagatell.png";
 
 // const partners = [
 //   { image: leonArt, link: "https://www.leonartpress.hu/" },
@@ -29,7 +28,7 @@ export default function Footer() {
             Jó kezekben leszünk!
           </h1>
         </div>
-        <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-5">
           <a href="https://www.leonartpress.hu/" target="_blank">
             <img
               className="cursor-pointer mt-5 md:scale-125"
@@ -59,13 +58,10 @@ export default function Footer() {
             />
           </a>
           <a href="https://www.rendezvenydj.com/" target="_blank">
-            <img className="cursor-pointer mt-2 scale-75 md:scale-90" src={rDj} alt="rDj" />
-          </a>
-          <a href="http://bagatelletterem.hu/" target="_blank">
             <img
-              className="cursor-pointer mt-12 md:scale-125"
-              src={bagatell}
-              alt="bagatell"
+              className="cursor-pointer mt-2 scale-75 md:scale-90"
+              src={rDj}
+              alt="rDj"
             />
           </a>
         </div>
