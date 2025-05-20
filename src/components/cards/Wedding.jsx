@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {
   FaDoorOpen,
+  FaGift,
   FaHeart,
   FaCamera,
-  FaMicrophone,
   FaUtensils,
   FaMusic,
   FaBirthdayCake,
@@ -127,27 +127,27 @@ export default function Wedding() {
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 text-right pr-4">
                         <span className="block text-custom-pink font-bold">
-                          18:30
+                          18:05
                         </span>
-                        <span>Fotózás</span>
+                        <span>Gratulációk</span>
                       </div>
                       <div className="w-1/2 flex justify-start pl-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <FaCamera />
+                          <FaGift />
                         </span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
                       <div className="w-1/2 flex justify-end pr-4">
                         <span className="flex-shrink-0 bg-custom-pink text-white rounded-full w-8 h-8 flex items-center justify-center">
-                          <FaMicrophone />
+                          <FaCamera />
                         </span>
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          19:50
+                          18:30
                         </span>
-                        <span>Pohárköszöntő</span>
+                        <span>Fotózás</span>
                       </div>
                     </li>
                     <li className="flex items-center mb-8 w-full">
@@ -171,7 +171,7 @@ export default function Wedding() {
                       </div>
                       <div className="w-1/2 text-left pl-4">
                         <span className="block text-custom-pink font-bold">
-                          21:30
+                          21:45
                         </span>
                         <span>Nyitótánc</span>
                       </div>
