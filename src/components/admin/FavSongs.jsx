@@ -81,6 +81,13 @@ const FavoriteSongs = () => {
         song.artists[0].name.toLowerCase().includes(search.toLowerCase()))
   );
 
+  useEffect(() => {
+    if (uniqueSongs.length > 0) {
+      const uris = uniqueSongs.map((song) => song.uri).filter(Boolean);
+      console.log("🎵 Track URIs:", JSON.stringify(uris));
+    }
+  }, [uniqueSongs]);
+
   return (
     <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
       <h2 className="text-4xl font-gilda font-bold mb-4">Kívánságlista</h2>
@@ -94,59 +101,59 @@ const FavoriteSongs = () => {
         />
       </div>
       <div className="rounded-md overflow-hidden">
-      <table className="min-w-full bg-white font-gilda">
-        <thead className="text-left bg-custom-pink text-gray-50">
-          <tr>
-            <th
-              onClick={() => handleSortChange("name")}
-              className="cursor-pointer p-2 border-b"
-            >
-              <span className="flex items-center gap-1">
-                Zene címe
-                <FaSort />
-              </span>
-            </th>
-            <th
-              onClick={() => handleSortChange("artist")}
-              className="cursor-pointer p-2 border-b"
-            >
-              <span className="flex items-center gap-1">
-                Előadó
-                <FaSort />
-              </span>
-            </th>
-            <th
-              onClick={() => handleSortChange("count")}
-              className="text-center cursor-pointer p-2 border-b"
-            >
-              <span className="flex items-center justify-center gap-1">
-                Szavazat
-                <FaSort />
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredSongs.map((song, index) => (
-            <tr key={index} className="hover:bg-gray-100">
-              <td className="p-2 border-b">{song.name}</td>
-              <td className="p-2 border-b">{song.artists[0].name}</td>
-              <td className="p-2 border-b text-center">
-                <Tooltip
-                  className="cursor-pointer"
-                  title={`Beküldők: ${song.guests.join(", ")}`}
-                  position="top"
-                  trigger="mouseenter"
-                  arrow={true}
-                  theme="light"
-                >
-                  {song.count}
-                </Tooltip>
-              </td>
+        <table className="min-w-full bg-white font-gilda">
+          <thead className="text-left bg-custom-pink text-gray-50">
+            <tr>
+              <th
+                onClick={() => handleSortChange("name")}
+                className="cursor-pointer p-2 border-b"
+              >
+                <span className="flex items-center gap-1">
+                  Zene címe
+                  <FaSort />
+                </span>
+              </th>
+              <th
+                onClick={() => handleSortChange("artist")}
+                className="cursor-pointer p-2 border-b"
+              >
+                <span className="flex items-center gap-1">
+                  Előadó
+                  <FaSort />
+                </span>
+              </th>
+              <th
+                onClick={() => handleSortChange("count")}
+                className="text-center cursor-pointer p-2 border-b"
+              >
+                <span className="flex items-center justify-center gap-1">
+                  Szavazat
+                  <FaSort />
+                </span>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredSongs.map((song, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="p-2 border-b">{song.name}</td>
+                <td className="p-2 border-b">{song.artists[0].name}</td>
+                <td className="p-2 border-b text-center">
+                  <Tooltip
+                    className="cursor-pointer"
+                    title={`Beküldők: ${song.guests.join(", ")}`}
+                    position="top"
+                    trigger="mouseenter"
+                    arrow={true}
+                    theme="light"
+                  >
+                    {song.count}
+                  </Tooltip>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
