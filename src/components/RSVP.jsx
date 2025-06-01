@@ -45,7 +45,7 @@ const mealPreferences = [
 
 export default function RSVP() {
   const [formData, setFormData] = useState(initialvalues);
-  const [formPhase, setFormPhase] = useState(1);
+  const [formPhase, setFormPhase] = useState(3);
   const [error, setError] = useState("");
   const animatedComponents = makeAnimated();
 
@@ -520,7 +520,7 @@ export default function RSVP() {
               {formPhase === 3 && (
                 <div className="mt-12 flex flex-col items-center justify-center">
                   <h1 className="relative uppercase font-gilda text-center text-3xl m-4 text-custom-pink">
-                    Köszi a kitöltést!
+                    Köszönjünk mindenkinek a kitöltést!
                   </h1>
                   <div className="w-64 h-96 rounded-md overflow-hidden cursor-pointer bg-custom-light flex justify-center items-center">
                     <img
