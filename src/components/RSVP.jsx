@@ -1,6 +1,5 @@
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import miniLeaves from "../assets/miniLeaves.png";
 import { useState } from "react";
 import { createGuest } from "../services/guest/createGuest";
 import seeYou from "../assets/bubike.jpg";
@@ -118,7 +117,7 @@ export default function RSVP() {
       <div className="text-xs lg:text-md flex justify-center w-[40rem] max-w-[90vw] h-[60rem] mx-auto">
         <div className="relative w-full h-full border-2 shadow-3xl rounded-t-full rounded-b-full">
           <div className="flex flex-col items-center w-[37.2rem] max-w-[80vw] h-[57.2rem] absolute top-5 left-5 rounded-t-full rounded-b-full border border-custom-pink">
-            <h1 className="relative mt-24 text-center uppercase font-gilda text-2xl lg:text-4xl text-custom-pink">
+            {/* <h1 className="relative mt-24 text-center uppercase font-gilda text-2xl lg:text-4xl text-custom-pink">
               <img
                 className="absolute -top-8 left-20 lg:left-32 h-12"
                 src={miniLeaves}
@@ -149,7 +148,7 @@ export default function RSVP() {
               >
                 Sajnos nem tudok menni!
               </button>
-            </div>
+            </div> */}
             <div className="mt-2 w-4/5">
               {formData.rsvp && formPhase === 1 && (
                 <form>
@@ -447,7 +446,13 @@ export default function RSVP() {
               )}
               {formData.rsvp && formPhase === 2 && (
                 <form className="mt-2 px-4">
-                  <div className={`max-h-[34rem] ${formData.numberOfFamilyMembers > 3 ?  "overflow-scroll" : ""}`}>
+                  <div
+                    className={`max-h-[34rem] ${
+                      formData.numberOfFamilyMembers > 3
+                        ? "overflow-scroll"
+                        : ""
+                    }`}
+                  >
                     {Array.from({
                       length: formData.numberOfFamilyMembers - 1,
                     }).map((_, index) => (
@@ -486,7 +491,8 @@ export default function RSVP() {
                               name="mealPreferences"
                               options={mealPreferences}
                               menuPlacement={
-                                index && index === formData.numberOfFamilyMembers - 2
+                                index &&
+                                index === formData.numberOfFamilyMembers - 2
                                   ? "top"
                                   : "bottom"
                               }
