@@ -3,6 +3,7 @@ import lowerMotive from "../assets/lowerMotive.png";
 import topLeaves from "../assets/topLeaves.png";
 import lowerLeaves from "../assets/lowerLeaves.png";
 import hero from "../assets/hero.jpg";
+import Countdown from "./CountDown";
 
 export default function Hero() {
   return (
