@@ -25,7 +25,7 @@ export default function Hero() {
               <h2 className="font-gilda text-2xl 2xl:text-3xl text-gray-600">
                 ÖSSZEHÁZASODTUNK, 2025. MÁJUS 31-ÉN
               </h2>
-              {/* <Countdown /> */}
+              <Countdown />
               <div className="2xl:mt-12">
                 <img src={lowerMotive} width={"350rem"} alt="lowerMotive" />
               </div>
@@ -61,7 +61,7 @@ export default function Hero() {
               <h2 className="font-gilda text-xs xs:text-md text-center text-gray-600">
                 ÖSSZEHÁZASODTUNK, 2025. MÁJUS 31-ÉN
               </h2>
-              {/* <Countdown /> */}
+              <Countdown />
               <div className="flex justify-center">
                 <img src={lowerMotive} width={"350rem"} alt="lowerMotive" />
               </div>
