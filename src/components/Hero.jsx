@@ -24,7 +24,7 @@ export default function Hero() {
                 Démi & Norbi
               </h1>
               <h2 className="font-gilda text-2xl 2xl:text-3xl text-gray-600">
-                ÖSSZEHÁZASODUNK, 2025. MÁJUS 31-ÉN
+                ÖSSZEHÁZASODTUNK, 2025. MÁJUS 31-ÉN
               </h2>
               <Countdown />
               <div className="2xl:mt-12">
@@ -60,7 +60,7 @@ export default function Hero() {
                 Démi & Norbi
               </h1>
               <h2 className="font-gilda text-xs xs:text-md text-center text-gray-600">
-                ÖSSZEHÁZASODUNK, 2025. MÁJUS 31-ÉN
+                ÖSSZEHÁZASODTUNK, 2025. MÁJUS 31-ÉN
               </h2>
               <Countdown />
               <div className="flex justify-center">

@@ -25,7 +25,7 @@ export default function Footer() {
               src={miniLeaves}
               alt="miniLeaves"
             />
-            Jó kezekben leszünk!
+            Jó kezekben voltunk!
           </h1>
         </div>
         <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-5">

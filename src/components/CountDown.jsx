@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-export default function Countdown () {
+export default function Countdown() {
   const calculateCountdown = () => {
-    const targetDate = new Date("2025-05-31T15:00:00");
+    const targetDate = new Date("2025-05-31T16:00:00");
     const now = new Date();
-    const difference = targetDate - now;
+    const difference = now - targetDate;
 
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
@@ -41,8 +41,8 @@ export default function Countdown () {
         <p className="text-sm">perc</p>
       </div>
       <div className="bg-gray-50 rounded-md p-4 m-2 text-center w-1/5 md:w-20">
-        <p className="text-2xl font-bold">{countdown.seconds}</p>
-        <p className="text-sm">mp</p>
+        <p className="text-2xl font-bold">telt el</p>
+        <p className="text-sm">azóta</p>
       </div>
     </div>
   );

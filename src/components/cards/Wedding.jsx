@@ -42,8 +42,8 @@ export default function Wedding() {
         </span>
         <p className="font-gilda mb-3 h-16 font-normal text-xs text-justify text-gray-400">
           A vendégvárás a Bukovszki Birtokon 17:00-kor kezdődik. A polgári
-          ceremónia 18:00-kor veszi kezdetét, majd 18:30-tól fotózkodásra
-          invitáljuk a vendégeket. A vacsora 19:30-kor kezdődik.
+          ceremónia 17:30-kor veszi kezdetét, majd 18:30-tól fotózkodásra
+          invitáljuk a vendégeket. A vacsora 20:00-kor kezdődik.
         </p>
         <button
           onClick={openModal}
