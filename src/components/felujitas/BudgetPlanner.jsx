@@ -179,13 +179,13 @@ const HomeBudget = () => {
           </div>
           <div className="flex items-center gap-2 border border-gray-200 p-2 rounded-lg bg-white text-teal-700">
             <FaWallet className="text-lg" />
-            <span>Átlag költés/tétel:</span>
+            <span>Ár/tétel:</span>
             <span className="ml-auto">
               {avgSpentPerItem.toLocaleString()} Ft
             </span>
           </div>
           <div className="flex items-center gap-2 border border-gray-200 p-2 rounded-lg bg-white text-teal-700">
-            <span>Költségvetés:</span>
+            <span>Budget:</span>
             <span className="ml-auto">{MAX_BUDGET.toLocaleString()} Ft</span>
           </div>
         </div>
