@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SpotifyFavorites from "./components/music/FavouriteSongs.jsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
 import AdminLogin from "./components/admin/AdminLogin.jsx";
+import HomeBudget from "./components/felujitas/BudgetPlanner.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <AdminLogin />,
+  },
+  {
+    path: "/felujitas",
+    element: <HomeBudget />,
   },
 ]);
 
