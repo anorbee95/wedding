@@ -161,32 +161,30 @@ const HomeBudget = () => {
 
   return (
     <div className="mx-auto text-xs md:text-base 2xl:max-w-[80%] md:p-4">
-      <h2 className="text-4xl font-gilda font-bold mb-4 text-custom-pink">
+      <h2 className="text-4xl font-gilda font-bold mb-4 text-teal-700">
         Költségvetés (Felújítás)
       </h2>
       {/* Dashboard */}
-      <div className="sticky top-0 z-10 mb-6 p-4 rounded-xl shadow-lg font-gilda bg-custom-pink text-gray-50 font-bold text-base md:text-2xl flex flex-col gap-2">
+      <div className="sticky top-0 z-10 mb-6 p-4 rounded-xl shadow-lg font-gilda bg-teal-600 text-gray-50 font-bold text-base md:text-2xl flex flex-col gap-2">
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 mb-2">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col md:flex-row items-center gap-2">
             <FaListUl className="text-lg" />
             <span>Kategóriák:</span>
-            <span className="ml-auto">{categories.length}</span>
+            <span className="ml-6">{categories.length}</span>
           </div>
           <div className="flex items-center gap-2">
             <FaMoneyBillWave className="text-lg" />
             <span>Összes tétel:</span>
-            <span className="ml-auto">{totalItems}</span>
+            <span className="ml-6">{totalItems}</span>
           </div>
           <div className="flex items-center gap-2">
             <FaWallet className="text-lg" />
             <span>Átlag költés/tétel:</span>
-            <span className="ml-auto">
-              {avgSpentPerItem.toLocaleString()} Ft
-            </span>
+            <span className="ml-6">{avgSpentPerItem.toLocaleString()} Ft</span>
           </div>
           <div className="flex items-center gap-2">
             <span>Költségvetés:</span>
-            <span className="ml-auto">{MAX_BUDGET.toLocaleString()} Ft</span>
+            <span className="ml-6">{MAX_BUDGET.toLocaleString()} Ft</span>
           </div>
         </div>
         <div className="flex justify-between mb-1">
@@ -220,7 +218,7 @@ const HomeBudget = () => {
       <div className="flex flex-col gap-4">
         {categories.map((category) => (
           <div key={category.id} className="rounded-xl shadow-md bg-white">
-            <div className="flex items-center text-left pt-3 pb-2 rounded-t-xl text-custom-pink font-bold bg-custom-pink-transparent md:text-xl font-gilda">
+            <div className="flex items-center text-left pt-3 pb-2 rounded-t-xl text-teal-700 font-bold bg-teal-100 md:text-xl font-gilda">
               <button
                 className="w-8 flex justify-center py-2 text-custom-pink"
                 onClick={() =>
@@ -288,7 +286,7 @@ const HomeBudget = () => {
                     </div>
                     <div
                       onClick={() => deleteItem(category.id, item.id)}
-                      className="cursor-pointer self-center text-custom-pink hover:text-red-700 px-2"
+                      className="cursor-pointer self-center text-teal-700 hover:text-red-700 px-2"
                     >
                       Törlés
                     </div>
@@ -296,7 +294,7 @@ const HomeBudget = () => {
                 ))}
                 <button
                   onClick={() => addItem(category.id)}
-                  className="mt-2 pl-2 flex items-center text-custom-pink-transparent hover:text-custom-pink text-base"
+                  className="mt-2 pl-2 flex items-center text-teal-400 hover:text-teal-700 text-base"
                 >
                   <IoMdAddCircleOutline className="mr-1 mb-1 text-lg" />
                   Új tétel hozzáadása
@@ -308,7 +306,7 @@ const HomeBudget = () => {
       </div>
       <button
         onClick={addCategory}
-        className="flex items-center mt-8 px-2 text-xl font-gilda bg-none text-custom-pink-transparent hover:text-custom-pink"
+        className="flex items-center mt-8 px-2 text-xl font-gilda bg-none text-teal-400 hover:text-teal-700"
       >
         <IoMdAddCircleOutline className="mr-1 mb-1" />
         Új kategória hozzáadása
