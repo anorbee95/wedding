@@ -363,9 +363,7 @@ const HomeBudget = () => {
                             }
                             title="Váltás készpénz/kártya"
                           >
-                            {item.paymentType === "card"
-                              ? "Kártya"
-                              : "Készpénz"}
+                            {item.paymentType === "card" ? "💳" : "💵"}
                           </button>
                         </div>
                       </div>
