@@ -313,7 +313,7 @@ const HomeBudget = () => {
               {category.open && (
                 <div className="p-2 bg-white font-gilda rounded-b-xl">
                   <div className="flex">
-                    <div className="grow grid grid-cols-5 gap-2 mr-4 mb-2 font-semibold text-teal-700 hover:text-teal-900">
+                    <div className="grow grid grid-cols-4 gap-2 mr-4 mb-2 font-semibold text-teal-700 hover:text-teal-900">
                       <p className="pl-2">Költség</p>
                       <p className="pl-2">Teljes ár</p>
                       <p className="pl-2">Fizetve</p>
@@ -327,7 +327,7 @@ const HomeBudget = () => {
                       key={item.id}
                       className="flex hover:bg-gray-50 rounded-lg transition"
                     >
-                      <div className="grow grid grid-cols-5 gap-2 mr-4 mb-2 text-gray-600">
+                      <div className="grow grid grid-cols-4 gap-2 mr-4 mb-2 text-gray-600">
                         {["name", "total", "paid", "due"].map((field) => (
                           <div
                             key={field}
