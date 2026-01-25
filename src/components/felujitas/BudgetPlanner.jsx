@@ -318,7 +318,7 @@ const HomeBudget = () => {
                       <p className="pl-2">Teljes ár</p>
                       <p className="pl-2">Fizetve</p>
                       <p className="pl-2">Fizetendő</p>
-                      <p className="pl-2">Fizetés</p>
+                      {/* <p className="pl-2">Fizetés</p> */}
                     </div>
                     <p className="text-transparent">Törlés</p>
                   </div>
