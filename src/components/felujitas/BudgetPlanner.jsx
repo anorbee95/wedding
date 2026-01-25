@@ -65,6 +65,7 @@ const HomeBudget = () => {
     );
   };
 
+  // Kártyás fizetés váltása – logikát meghagytam, de a UI ki van kommentelve
   const handlePaymentTypeChange = async (categoryId, itemId) => {
     const updatedCategories = categories.map((category) => {
       if (category.id === categoryId) {
@@ -149,16 +150,16 @@ const HomeBudget = () => {
     let totalPaid = 0;
     let totalDue = 0;
     let totalItems = 0;
-    let totalPaidByCard = 0;
+    // let totalPaidByCard = 0;
 
     categories.forEach((category) => {
       totalItems += category.items.length;
       category.items.forEach((item) => {
         totalPaid += Number(item.paid);
         totalDue += Number(item.due);
-        if (item.paymentType === "card") {
-          totalPaidByCard += Number(item.paid);
-        }
+        // if (item.paymentType === "card") {
+        //   totalPaidByCard += Number(item.paid);
+        // }
       });
     });
 
@@ -172,7 +173,7 @@ const HomeBudget = () => {
       remainingBudget,
       totalItems,
       avgSpentPerItem,
-      totalPaidByCard,
+      // totalPaidByCard,
     };
   };
 
@@ -182,7 +183,7 @@ const HomeBudget = () => {
     remainingBudget,
     totalItems,
     avgSpentPerItem,
-    totalPaidByCard,
+    // totalPaidByCard,
   } = calculateStatistics();
 
   // Calculate budget usage for progress bar
@@ -195,15 +196,15 @@ const HomeBudget = () => {
   const getCategorySummary = (items) => {
     let total = 0;
     let paid = 0;
-    let paidByCard = 0;
+    // let paidByCard = 0;
     items.forEach((item) => {
       total += Number(item.total);
       paid += Number(item.paid);
-      if (item.paymentType === "card") {
-        paidByCard += Number(item.paid);
-      }
+      // if (item.paymentType === "card") {
+      //   paidByCard += Number(item.paid);
+      // }
     });
-    return { total, paid, paidByCard };
+    return { total, paid /*, paidByCard */ };
   };
 
   return (
@@ -244,10 +245,10 @@ const HomeBudget = () => {
           <span>Fizetendő:</span>
           <span>{totalDue.toLocaleString()} Ft</span>
         </div>
-        <div className="flex justify-between mb-1">
+        {/* <div className="flex justify-between mb-1">
           <span>Kártyával fizetve:</span>
           <span>{totalPaidByCard.toLocaleString()} Ft</span>
-        </div>
+        </div> */}
         <div className="flex justify-between mb-2">
           <span>Fennmaradó költségvetés:</span>
           <span className={remainingBudget < 0 ? "text-red-700" : ""}>
@@ -307,7 +308,7 @@ const HomeBudget = () => {
               <div className="flex flex-wrap gap-4 px-4 py-2 bg-teal-50 text-teal-800 text-xs md:text-base rounded-b-lg font-semibold">
                 <span>Összesen: {summary.total.toLocaleString()} Ft</span>
                 <span>Kifizetve: {summary.paid.toLocaleString()} Ft</span>
-                <span>Kártyával: {summary.paidByCard.toLocaleString()} Ft</span>
+                {/* <span>Kártyával: {summary.paidByCard.toLocaleString()} Ft</span> */}
               </div>
               {category.open && (
                 <div className="p-2 bg-white font-gilda rounded-b-xl">
@@ -350,7 +351,8 @@ const HomeBudget = () => {
                             {field !== "name" && <span>Ft</span>}
                           </div>
                         ))}
-                        {/* Payment type toggle */}
+                        {/* Payment type toggle UI kikommentelve */}
+                        {/*
                         <div className="p-2 bg-white border-b-2 flex items-center justify-center rounded">
                           <button
                             className={`px-2 py-1 rounded text-xs font-bold ${
@@ -363,7 +365,6 @@ const HomeBudget = () => {
                             }
                             title="Váltás készpénz/kártya"
                           >
-                            {/* Mobile: emoji, Desktop: text */}
                             <span className="inline md:hidden">
                               {item.paymentType === "card" ? "💳" : "💵"}
                             </span>
@@ -374,6 +375,7 @@ const HomeBudget = () => {
                             </span>
                           </button>
                         </div>
+                        */}
                       </div>
                       <div
                         onClick={() => deleteItem(category.id, item.id)}
