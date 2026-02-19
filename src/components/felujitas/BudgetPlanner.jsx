@@ -20,7 +20,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 
 const HomeBudget = () => {
   const [categories, setCategories] = useState([]);
-  const MAX_BUDGET = 10000000;
+  const MAX_BUDGET = 12000000;
 
   useEffect(() => {
     const fetchData = async () => {
